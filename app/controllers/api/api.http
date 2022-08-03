@@ -1,0 +1,12 @@
+GET http://localhost:3000/api/users
+
+Content-Type: application/json
+
+{
+    "user": {
+    "username": "Andy",
+    "password": "Andy12",
+    "email": "andy@andy.com"
+    }
+  
+}
