@@ -1,9 +1,9 @@
 import React from "react";
-import LoginForm from '../session/login_form'
+import SignUpForm from '../session/signup_form'
 const Splash = () => {    
     return(
         <div className="homepage">
-          <LoginForm/>
+          <SignUpForm/>
         </div>
     )}
     export default Splash;

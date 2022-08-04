@@ -1,13 +1,21 @@
 import React from 'react';
-import {useState, useEffect } from 'react'
+import {useSelector, useDispatch} from 'react-redux';
+import {useState, useEffect} from 'react'
 import { withRouter } from 'react-router-dom'
+import {signup} from '../../actions/session_actions';
 
-const LoginForm = ({processForm}) => {
+const SignUpForm = ({signUp}) => {
     const[data, setData] = useState({
         username: "",
         password: "",
         email: ""
     })
+
+    const dispatch = useDispatch()
+    // const arg = useSelector(state => state.arg)
+
+ 
+    const errors = useSelector(state => state.errors.session)
 
     // useEffect(() => {
 
@@ -24,8 +32,7 @@ const LoginForm = ({processForm}) => {
         function submitHandler(e) {
             e.preventDefault();
             const user = Object.assign({}, data);
-          console.log()
-            
+            dispatch(signup(user))
         }
 
     return(
@@ -46,4 +53,4 @@ const LoginForm = ({processForm}) => {
     )
 }
 
-export default LoginForm
+export default SignUpForm
