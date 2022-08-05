@@ -2,9 +2,9 @@ import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {useState, useEffect} from 'react'
 import { withRouter } from 'react-router-dom'
-import {signup} from '../../actions/session_actions';
+import {login} from '../../actions/session_actions';
 
-const SignUpForm = () => {
+const LoginForm = () => {
     const[data, setData] = useState({
         username: "",
         password: "",
@@ -30,7 +30,8 @@ const SignUpForm = () => {
         function submitHandler(e) {
             e.preventDefault();
             const user = Object.assign({}, data);
-            dispatch(signup(user))
+            dispatch(login(user))
+            .then(console.log("you logged in"))
         }
 
     return(
@@ -51,4 +52,4 @@ const SignUpForm = () => {
     )
 }
 
-export default SignUpForm
+export default LoginForm
