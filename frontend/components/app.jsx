@@ -1,5 +1,4 @@
 
-
 import React from 'react';
 import { Provider } from 'react-redux';
 import {
@@ -7,16 +6,28 @@ import {
   Redirect,
   Switch,
   Link,
-  HashRouter
+  HashRouter,
+  BrowserRouter,
+  Routes
 } from 'react-router-dom';
 
 import Splash from './splash/splash';
+import LoginForm from './session/login_form';
+import SignUpForm from './session/signup_form'
+import Home from './splash/home'
 
 
 
 const App = () => (
   <div>
-      <Splash />
+      {/* <Splash /> */}
+      <Routes>
+      <Route exact path="/" element={<Splash/>} />
+      <Route exact path="/home" element={<Home/>}/>
+      <Route exact path="/login" element={<LoginForm/>} />
+      <Route exact path="/signup" component={SignUpForm} />
+     
+     </Routes>
   </div>
   
 );

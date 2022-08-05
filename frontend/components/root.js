@@ -6,16 +6,17 @@ import {
    Redirect,
    Switch,
    Link,
-   HashRouter
+   HashRouter,
+   BrowserRouter
  } from 'react-router-dom';
 
 
  const Root = (props) => {
     return (
     <Provider store={props.store}> 
-       <HashRouter>
+       <BrowserRouter>
           <App/>
-       </HashRouter>
+       </BrowserRouter>
     </Provider>
     )
  }

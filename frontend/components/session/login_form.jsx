@@ -1,7 +1,8 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
+// import {useHistory} from 'react-router'
 import {useState, useEffect} from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, useNavigate } from 'react-router-dom'
 import {login} from '../../actions/session_actions';
 
 const LoginForm = () => {
@@ -13,7 +14,7 @@ const LoginForm = () => {
 
     const dispatch = useDispatch()
   
-
+    const navigate = useNavigate()
  
     const errors = useSelector(state => state.errors.session)
 
@@ -28,10 +29,11 @@ const LoginForm = () => {
 
 
         function submitHandler(e) {
+            
             e.preventDefault();
             const user = Object.assign({}, data);
             dispatch(login(user))
-            .then(console.log("you logged in"))
+            .then(navigate("/home"))
         }
 
     return(

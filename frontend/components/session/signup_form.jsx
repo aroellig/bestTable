@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {useState, useEffect} from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter,  useNavigate} from 'react-router-dom'
 import {signup} from '../../actions/session_actions';
 
 const SignUpForm = () => {
@@ -13,7 +13,7 @@ const SignUpForm = () => {
 
     const dispatch = useDispatch()
   
-
+    const navigate = useNavigate()
  
     const errors = useSelector(state => state.errors.session)
 
@@ -31,6 +31,7 @@ const SignUpForm = () => {
             e.preventDefault();
             const user = Object.assign({}, data);
             dispatch(signup(user))
+            .then(navigate("/home"))
         }
 
     return(
