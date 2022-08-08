@@ -1,0 +1,1 @@
+json.extract! review, :id, :name, :location, :tables
