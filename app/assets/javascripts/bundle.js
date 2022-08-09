@@ -401,7 +401,7 @@ var Home = function Home() {
 
   function logoutUser(e) {
     e.preventDefault();
-    dispatch.logout(user).then(navigate("/"));
+    dispatch((0,_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__.logout)(user)).then(navigate("/"));
   }
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
@@ -579,6 +579,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
 
+
+var _nullUser = Object.freeze({
+  id: null
+});
 
 var sessionReducer = function sessionReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];

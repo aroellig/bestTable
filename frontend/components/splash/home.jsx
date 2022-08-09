@@ -15,7 +15,7 @@ const Home = () => {
 
   function  logoutUser(e) {
         e.preventDefault();
-       dispatch.logout(user)
+       dispatch(logout(user))
        .then(navigate("/"))
        
       }
