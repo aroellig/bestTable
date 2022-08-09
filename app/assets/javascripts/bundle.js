@@ -121,7 +121,7 @@ var App = function App() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
     exact: true,
     path: "/signup",
-    component: _session_signup_form__WEBPACK_IMPORTED_MODULE_4__["default"]
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_session_signup_form__WEBPACK_IMPORTED_MODULE_4__["default"], null)
   })));
 };
 

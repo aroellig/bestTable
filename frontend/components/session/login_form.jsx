@@ -29,7 +29,6 @@ const LoginForm = () => {
 
 
         function submitHandler(e) {
-            
             e.preventDefault();
             const user = Object.assign({}, data);
             dispatch(login(user))
