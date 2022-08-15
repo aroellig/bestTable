@@ -19,7 +19,7 @@ export const createRestaurant = restaurant => {
         processData: false, contentType: false,
     })
 }
-export const updateEvent = restaurant => {
+export const updateRestaurant = restaurant => {
    return $.ajax({
         url: `/api/restaurants/${restaurant.id}`,
         method: 'PATCH',
@@ -28,7 +28,7 @@ export const updateEvent = restaurant => {
     })
 }
 
-export const removeEvent = restaurantId => (
+export const removeRestaurant = restaurantId => (
     $.ajax({
         url: `/api/restaurants/${restaurantId}`,
         method: 'DELETE'
