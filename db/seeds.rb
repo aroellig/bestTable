@@ -10,3 +10,5 @@ require 'open-uri'
 User.delete_all
 
 u0 = User.create!({username: "andrew", password: "andy12", email: 'andy@andy.com'})
+
+
