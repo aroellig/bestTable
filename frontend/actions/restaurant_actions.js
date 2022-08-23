@@ -1,4 +1,4 @@
-import * as APIUtil from '../util/event_api_util';
+import * as APIUtil from '../util/restaurant_api_util';
 
 export const RECEIVE_RESTAURANTS = "RECEIVE_RESTAURANTS";
 export const RECEIVE_RESTAURANT = "RECEIVE_RESTAURANT";

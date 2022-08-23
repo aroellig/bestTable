@@ -1,4 +1,4 @@
-import { RECEIVE_RESTAURANT_ERRORS } from '../actions/restaurant_action'
+import { RECEIVE_RESTAURANT_ERRORS } from '../actions/restaurant_actions'
 import { CLEAR_ERRORS } from '../actions/session_actions'
 
 const restaurantErrorsReducer = (oldState = [], action) => {

@@ -1,4 +1,4 @@
-import { RECEIVE_RESTAURANTS, RECEIVE_RESTAURANT, REMOVE_RESTAURANT} from '../actions/restaurant_action'
+import { RECEIVE_RESTAURANTS, RECEIVE_RESTAURANT, REMOVE_RESTAURANT} from '../actions/restaurant_actions'
 
 
 
