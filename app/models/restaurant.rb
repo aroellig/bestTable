@@ -1,3 +1,3 @@
 class Restaurant < ApplicationRecord
-    validates :name, :location, :tables
+    validate :name, :location, :tables
 end
