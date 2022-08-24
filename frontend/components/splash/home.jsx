@@ -3,6 +3,7 @@ import {logout} from '../../actions/session_actions';
 import {useSelector, useDispatch} from 'react-redux';
 import { withRouter,  useNavigate} from 'react-router-dom'
 import {Link} from 'react-router-dom'
+import RestaurantIndex from '../restaurant/restuarant_index'
 const Home = () => {    
 
     const dispatch = useDispatch()
@@ -21,8 +22,9 @@ const Home = () => {
       }
 
     return(
-        <div className="homepage">
+    <div className="homepage">
    <h1>HOME</h1>
+      <RestaurantIndex/>
         <div  className="logoutbtn">
            <button onClick={(e) => logoutUser(e)}>logout</button>
           </div>
