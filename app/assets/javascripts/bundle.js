@@ -238,7 +238,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _actions_restaurant_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/restaurant_actions */ "./frontend/actions/restaurant_actions.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_restaurant_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/restaurant_actions */ "./frontend/actions/restaurant_actions.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -254,22 +255,22 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var RestaurantIndex = function RestaurantIndex() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
       restaurants = _useState2[0],
       setRestaurants = _useState2[1];
 
+  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     getRestaurants();
   }, []);
 
   var getRestaurants = function getRestaurants() {
-    var res = (0,_actions_restaurant_actions__WEBPACK_IMPORTED_MODULE_1__.fetchRestaurants)();
-    setRestaurants(res);
+    console.log('hi');
   };
 
-  console.log(restaurants);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "restaurants"));
 };
 

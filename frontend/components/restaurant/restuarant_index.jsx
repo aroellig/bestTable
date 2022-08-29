@@ -1,18 +1,19 @@
 import React, {useEffect, useState} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 import {fetchRestaurants} from '../../actions/restaurant_actions';
 
 const RestaurantIndex = () => {
     const [restaurants, setRestaurants] = useState([]);
+    const dispatch = useDispatch()
     
     useEffect(() => {
        getRestaurants()
     }, [])
 
     const getRestaurants =  () => {
-    const res = fetchRestaurants();
-    setRestaurants(res)
+  console.log('hi')
     }
-    console.log(restaurants)
+    
     return (
         <div>
 <h1>restaurants</h1>
