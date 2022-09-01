@@ -11,7 +11,7 @@ const RestaurantIndex = () => {
     }, [])
 
     const getRestaurants =  () => {
-  console.log('hi')
+      dispatch(fetchRestaurants());
     }
     
     return (

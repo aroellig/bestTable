@@ -1,5 +1,7 @@
-@restuarants.each do |restuarant|
-  json.set! restuarant.id do
-    json.partial! 'restuarant', restuarant: restuarant
+
+@restaurants.each do |restaurant|
+
+  json.set! restaurant.id do
+    json.partial! 'restaurant', restaurant: restaurant
     end
 end

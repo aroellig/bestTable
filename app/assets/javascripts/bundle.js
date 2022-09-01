@@ -268,7 +268,7 @@ var RestaurantIndex = function RestaurantIndex() {
   }, []);
 
   var getRestaurants = function getRestaurants() {
-    console.log('hi');
+    dispatch((0,_actions_restaurant_actions__WEBPACK_IMPORTED_MODULE_2__.fetchRestaurants)());
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "restaurants"));
