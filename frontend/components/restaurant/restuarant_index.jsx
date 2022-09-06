@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {fetchRestaurants} from '../../actions/restaurant_actions';
+import RestaurantIndexItem from './restaurant_index_item'
 
 const RestaurantIndex = () => {
     const [restaurantsList, setRestaurants] = useState([]);
@@ -27,7 +28,7 @@ const RestaurantIndex = () => {
     return (
         <div>
     <ul>
-      {restaurantsList.map(restaurant => <li>{restaurant.name}</li>)}
+      {restaurantsList.map(restaurant => <RestaurantIndexItem restaurant={restaurant} key={restaurant.id} />)}
     </ul>
 </div>
     )
