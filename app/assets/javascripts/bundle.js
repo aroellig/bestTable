@@ -259,18 +259,32 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var RestaurantIndex = function RestaurantIndex() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
-      restaurants = _useState2[0],
+      restaurantsList = _useState2[0],
       setRestaurants = _useState2[1];
 
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
+
+  var makeArr = function makeArr(obj) {
+    var arr = [];
+
+    for (var key in obj) {
+      arr.push(obj[key]);
+    }
+
+    return arr;
+  };
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     getRestaurants();
   }, []);
 
   var getRestaurants = function getRestaurants() {
-    dispatch((0,_actions_restaurant_actions__WEBPACK_IMPORTED_MODULE_2__.fetchRestaurants)());
+    dispatch((0,_actions_restaurant_actions__WEBPACK_IMPORTED_MODULE_2__.fetchRestaurants)()).then(function (response) {
+      return setRestaurants(makeArr(response.restaurants));
+    });
   };
 
+  console.log(restaurantsList);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "restaurants"));
 };
 
