@@ -9,6 +9,10 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
 
 
+    has_many :reservations,
+    foreign_key: :reservation_id,
+    class_name: 'Reservation'
+
     def self.find_by_credentials(username, password)
         user = User.find_by(username: username)
 
