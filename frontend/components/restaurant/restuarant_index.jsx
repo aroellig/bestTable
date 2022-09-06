@@ -23,10 +23,12 @@ const RestaurantIndex = () => {
       .then(response => setRestaurants(makeArr(response.restaurants)))
     }
 
-    console.log(restaurantsList)
+   
     return (
         <div>
-<h1>restaurants</h1>
+    <ul>
+      {restaurantsList.map(restaurant => <li>{restaurant.name}</li>)}
+    </ul>
 </div>
     )
 }
