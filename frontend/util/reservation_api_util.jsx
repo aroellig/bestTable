@@ -18,7 +18,7 @@ export const createReservation = reservation => (
     })
 )
 
-export const deleteRSVP = reservationId => (
+export const deleteReservation = reservationId => (
     $.ajax({
         url:`/api/reservations/${reservationId}`,
         method: 'DELETE'

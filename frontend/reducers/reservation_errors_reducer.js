@@ -1,6 +1,6 @@
 import { RECEIVE_RESERVATION_ERRORS, RECEIVE_RESERVATION } from '../actions/reservation_actions'
 import { CLEAR_ERRORS } from '../actions/session_actions'
-import { RECEIVE_RESTAURANTS } from '../actions/event_action'
+import { RECEIVE_RESTAURANTS } from '../actions/restaurant_actions'
 
 const reservationErrorsReducer = (oldState = [], action) => {
   Object.freeze(oldState);

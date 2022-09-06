@@ -806,7 +806,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/reservation_actions */ "./frontend/actions/reservation_actions.js");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../actions/event_action'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _actions_restaurant_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/restaurant_actions */ "./frontend/actions/restaurant_actions.js");
 
 
 
@@ -827,7 +827,7 @@ var reservationErrorsReducer = function reservationErrorsReducer() {
     case _actions_reservation_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_RESERVATION:
       return [];
 
-    case Object(function webpackMissingModule() { var e = new Error("Cannot find module '../actions/event_action'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()):
+    case _actions_restaurant_actions__WEBPACK_IMPORTED_MODULE_2__.RECEIVE_RESTAURANTS:
       return [];
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__.CLEAR_ERRORS:
@@ -1143,7 +1143,7 @@ var makeStore = function makeStore() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "createReservation": () => (/* binding */ createReservation),
-/* harmony export */   "deleteRSVP": () => (/* binding */ deleteRSVP),
+/* harmony export */   "deleteReservation": () => (/* binding */ deleteReservation),
 /* harmony export */   "fetchReservation": () => (/* binding */ fetchReservation),
 /* harmony export */   "fetchReservations": () => (/* binding */ fetchReservations)
 /* harmony export */ });
@@ -1166,7 +1166,7 @@ var createReservation = function createReservation(reservation) {
     }
   });
 };
-var deleteRSVP = function deleteRSVP(reservationId) {
+var deleteReservation = function deleteReservation(reservationId) {
   return $.ajax({
     url: "/api/reservations/".concat(reservationId),
     method: 'DELETE'
