@@ -15,7 +15,7 @@ import Splash from './splash/splash';
 import LoginForm from './session/login_form';
 import SignUpForm from './session/signup_form'
 import Home from './splash/home'
-
+import RestaurantShow from './restaurant/restaurant_show'
 import RestaurantIndexItem from './restaurant/restaurant_index_item';
 
 
@@ -28,7 +28,7 @@ const App = () => (
       <Route exact path="/login" element={<LoginForm/>} />
       <Route exact path="/signup" element={<SignUpForm/>} />
       <Route exact path="/restaurant" element={<RestaurantIndexItem/>} />
-     
+      <Route exact path="/restaurant/:restaurantId" element={<RestaurantShow />}/>
      </Routes>
   </div>
   
