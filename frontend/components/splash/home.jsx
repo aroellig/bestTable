@@ -11,8 +11,7 @@ const Home = () => {
     const navigate = useNavigate()
  
     const errors = useSelector(state => state.errors.session)
-
-    const user = useSelector(action => action.currentUser)
+    const user = useSelector(state => state.entities.users)
 
   function  logoutUser(e) {
         e.preventDefault();
@@ -20,7 +19,7 @@ const Home = () => {
        .then(navigate("/"))
        
       }
-
+console.log(Object.keys(user)[0])
     return(
     <div className="homepage">
    <h1>HOME</h1>

@@ -676,8 +676,8 @@ var Home = function Home() {
   var errors = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(function (state) {
     return state.errors.session;
   });
-  var user = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(function (action) {
-    return action.currentUser;
+  var user = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(function (state) {
+    return state.entities.users;
   });
 
   function logoutUser(e) {
@@ -685,6 +685,7 @@ var Home = function Home() {
     dispatch((0,_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__.logout)(user)).then(navigate("/"));
   }
 
+  console.log(Object.keys(user)[0]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "homepage"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "HOME"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_restaurant_restuarant_index__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
