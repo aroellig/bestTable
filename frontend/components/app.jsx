@@ -16,6 +16,7 @@ import LoginForm from './session/login_form';
 import SignUpForm from './session/signup_form'
 import Home from './splash/home'
 
+import RestaurantIndexItem from './restaurant/restaurant_index_item';
 
 
 const App = () => (
@@ -26,6 +27,7 @@ const App = () => (
       <Route exact path="/home" element={<Home/>}/>
       <Route exact path="/login" element={<LoginForm/>} />
       <Route exact path="/signup" element={<SignUpForm/>} />
+      <Route exact path="/restaurant" element={<RestaurantIndexItem/>} />
      
      </Routes>
   </div>
