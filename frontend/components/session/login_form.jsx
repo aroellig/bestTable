@@ -39,13 +39,13 @@ const LoginForm = () => {
         <div>
         <form onSubmit={(e) => submitHandler(e)}>
         <div>
-            <input type="text" name="username" value={data.username} onChange={(e) => changeHandler(e)}/>
+            <input type="text" name="username" placeholder="username" value={data.username} onChange={(e) => changeHandler(e)}/>
         </div>
         <div>
-            <input type="text" name="password" value={data.password} onChange={(e) => changeHandler(e)}/>
+            <input type="text" name="password" placeholder="password" value={data.password} onChange={(e) => changeHandler(e)}/>
         </div>
         <div>
-            <input type="text" name="email" value={data.email} onChange={(e) => changeHandler(e)}/>
+            <input type="text" name="email" placeholder="email" value={data.email} onChange={(e) => changeHandler(e)}/>
         </div>
         <button type="submit">Submit</button>
     </form>

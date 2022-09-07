@@ -365,10 +365,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _actions_restaurant_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/restaurant_actions */ "./frontend/actions/restaurant_actions.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 
 
 
-var restaurantShow = function restaurantShow() {};
+
+
+var restaurantShow = function restaurantShow() {
+  var restaurant = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(function (state) {
+    return state.entities.restaurants;
+  });
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    (0,_actions_restaurant_actions__WEBPACK_IMPORTED_MODULE_1__.fetchRestaurant)(restaurantId);
+  }, []);
+};
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (restaurantShow);
 
@@ -555,6 +565,7 @@ var LoginForm = function LoginForm() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
     type: "text",
     name: "username",
+    placeholder: "username",
     value: data.username,
     onChange: function onChange(e) {
       return changeHandler(e);
@@ -562,6 +573,7 @@ var LoginForm = function LoginForm() {
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
     type: "text",
     name: "password",
+    placeholder: "password",
     value: data.password,
     onChange: function onChange(e) {
       return changeHandler(e);
@@ -569,6 +581,7 @@ var LoginForm = function LoginForm() {
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
     type: "text",
     name: "email",
+    placeholder: "email",
     value: data.email,
     onChange: function onChange(e) {
       return changeHandler(e);
