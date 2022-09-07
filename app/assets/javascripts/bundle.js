@@ -371,13 +371,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var restaurantShow = function restaurantShow() {
+var restaurantShow = function restaurantShow(props) {
   var restaurant = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(function (state) {
     return state.entities.restaurants;
-  });
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    (0,_actions_restaurant_actions__WEBPACK_IMPORTED_MODULE_1__.fetchRestaurant)(restaurantId);
-  }, []);
+  }); // useEffect(() => {
+  //     fetchRestaurant(restaurantId)
+  // }, [])
+
+  console.log(props.restaurantId);
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (restaurantShow);
