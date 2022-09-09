@@ -366,19 +366,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _actions_restaurant_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/restaurant_actions */ "./frontend/actions/restaurant_actions.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
 
 
 
 
 
-var restaurantShow = function restaurantShow(props) {
-  var restaurant = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(function (state) {
-    return state.entities.restaurants;
-  }); // useEffect(() => {
-  //     fetchRestaurant(restaurantId)
-  // }, [])
 
-  console.log(props.restaurantId);
+var restaurantShow = function restaurantShow() {
+  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useDispatch)();
+  var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useLocation)();
+  var urlArr = location.pathname.toString().split('/');
+  var id = urlArr[urlArr.length - 1];
+
+  var getRestaurant = function getRestaurant(id) {
+    dispatch((0,_actions_restaurant_actions__WEBPACK_IMPORTED_MODULE_1__.fetchRestaurant)(id)).then(function (response) {
+      return console.log(response);
+    });
+  };
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    getRestaurant(location.pathname);
+  }, []);
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (restaurantShow);
