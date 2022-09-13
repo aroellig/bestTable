@@ -1,28 +1,27 @@
 import React from 'react';
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
 import {fetchRestaurant, fetchRestaurants} from "../../actions/restaurant_actions"
 import {useSelector, useDispatch,} from 'react-redux';
 import {useLocation, useParams, useNavigate} from 'react-router-dom';
 
 
 const restaurantShow = () => {
-    debugger
 const dispatch =  useDispatch()
 const params = useParams();
 console.log(params)
 const location = useLocation()
-  const urlArr = location.pathname.toString().split('/')
-  const id = parseInt(urlArr[urlArr.length - 1])
+const [restaurant, setRestaurant] = useState({})
+  const id = parseInt(params.restaurantId)
   const getRestaurant = (id) => {
     dispatch(fetchRestaurant(id))
-    .then(response => console.log(response))
+    .then(response => setRestaurant(response.restaurant))
   }
 
 useEffect(() => {
 getRestaurant(id)
 }, [])
 
-    
+    console.log(restaurant)
    
 }
 
