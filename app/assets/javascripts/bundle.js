@@ -374,10 +374,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var restaurantShow = function restaurantShow() {
+  debugger;
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useDispatch)();
+  var params = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)();
+  console.log(params);
   var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useLocation)();
   var urlArr = location.pathname.toString().split('/');
-  var id = urlArr[urlArr.length - 1];
+  var id = parseInt(urlArr[urlArr.length - 1]);
 
   var getRestaurant = function getRestaurant(id) {
     dispatch((0,_actions_restaurant_actions__WEBPACK_IMPORTED_MODULE_1__.fetchRestaurant)(id)).then(function (response) {
@@ -386,7 +389,7 @@ var restaurantShow = function restaurantShow() {
   };
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    getRestaurant(location.pathname);
+    getRestaurant(id);
   }, []);
 };
 
