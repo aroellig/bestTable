@@ -13,11 +13,13 @@ import {
 
  const Root = (props) => {
     return (
+     
     <Provider store={props.store}> 
        <BrowserRouter>
           <App/>
        </BrowserRouter>
     </Provider>
+  
     )
  }
 

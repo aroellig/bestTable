@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react'
 import {fetchRestaurant, fetchRestaurants} from "../../actions/restaurant_actions"
 import {useSelector, useDispatch,} from 'react-redux';
 import { useParams} from 'react-router-dom';
-
+import { useSession } from "@clerk/clerk-react";
 
 const restaurantShow = () => {
 const dispatch =  useDispatch()
@@ -15,7 +15,8 @@ const [restaurant, setRestaurant] = useState({})
     dispatch(fetchRestaurant(id))
     .then(response => setRestaurant(response.restaurant))
   }
-
+const session = useSession();
+console.log(session)
 useEffect(() => {
 getRestaurant(id)
 }, [])

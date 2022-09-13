@@ -1,6 +1,2190 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./node_modules/@clerk/clerk-react/dist/components/SignInButton.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/components/SignInButton.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.SignInButton = void 0;
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+const react_1 = tslib_1.__importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const utils_1 = __webpack_require__(/*! ../utils */ "./node_modules/@clerk/clerk-react/dist/utils/index.js");
+const withClerk_1 = __webpack_require__(/*! ./withClerk */ "./node_modules/@clerk/clerk-react/dist/components/withClerk.js");
+exports.SignInButton = (0, withClerk_1.withClerk)((_a) => {
+    var { clerk, children } = _a, props = tslib_1.__rest(_a, ["clerk", "children"]);
+    const { afterSignInUrl, afterSignUpUrl, redirectUrl, mode } = props, rest = tslib_1.__rest(props, ["afterSignInUrl", "afterSignUpUrl", "redirectUrl", "mode"]);
+    children = (0, utils_1.normalizeWithDefaultValue)(children, 'Sign in');
+    const child = (0, utils_1.assertSingleChild)(children)('SignInButton');
+    const clickHandler = () => {
+        const opts = { afterSignInUrl, afterSignUpUrl, redirectUrl };
+        if (mode === 'modal') {
+            return clerk.openSignIn(opts);
+        }
+        return clerk.redirectToSignIn(opts);
+    };
+    const wrappedChildClickHandler = async (e) => {
+        await (0, utils_1.safeExecute)(child.props.onClick)(e);
+        return clickHandler();
+    };
+    const childProps = Object.assign(Object.assign({}, rest), { onClick: wrappedChildClickHandler });
+    return react_1.default.cloneElement(child, childProps);
+}, 'SignInButton');
+//# sourceMappingURL=SignInButton.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/components/SignInWithMetamaskButton.js":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/components/SignInWithMetamaskButton.js ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.SignInWithMetamaskButton = void 0;
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+const react_1 = tslib_1.__importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const utils_1 = __webpack_require__(/*! ../utils */ "./node_modules/@clerk/clerk-react/dist/utils/index.js");
+const withClerk_1 = __webpack_require__(/*! ./withClerk */ "./node_modules/@clerk/clerk-react/dist/components/withClerk.js");
+exports.SignInWithMetamaskButton = (0, withClerk_1.withClerk)((_a) => {
+    var { clerk, children } = _a, props = tslib_1.__rest(_a, ["clerk", "children"]);
+    const { redirectUrl } = props, rest = tslib_1.__rest(props, ["redirectUrl"]);
+    children = (0, utils_1.normalizeWithDefaultValue)(children, 'Sign in with Metamask');
+    const child = (0, utils_1.assertSingleChild)(children)('SignInWithMetamaskButton');
+    const clickHandler = async () => {
+        async function authenticate() {
+            await clerk.authenticateWithMetamask({ redirectUrl });
+        }
+        void authenticate();
+    };
+    const wrappedChildClickHandler = async (e) => {
+        await (0, utils_1.safeExecute)(child.props.onClick)(e);
+        return clickHandler();
+    };
+    const childProps = Object.assign(Object.assign({}, rest), { onClick: wrappedChildClickHandler });
+    return react_1.default.cloneElement(child, childProps);
+}, 'SignInWithMetamask');
+//# sourceMappingURL=SignInWithMetamaskButton.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/components/SignOutButton.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/components/SignOutButton.js ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.SignOutButton = void 0;
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+const react_1 = tslib_1.__importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const utils_1 = __webpack_require__(/*! ../utils */ "./node_modules/@clerk/clerk-react/dist/utils/index.js");
+const withClerk_1 = __webpack_require__(/*! ./withClerk */ "./node_modules/@clerk/clerk-react/dist/components/withClerk.js");
+exports.SignOutButton = (0, withClerk_1.withClerk)((_a) => {
+    var { clerk, children } = _a, props = tslib_1.__rest(_a, ["clerk", "children"]);
+    const { signOutCallback, signOutOptions } = props, rest = tslib_1.__rest(props, ["signOutCallback", "signOutOptions"]);
+    children = (0, utils_1.normalizeWithDefaultValue)(children, 'Sign out');
+    const child = (0, utils_1.assertSingleChild)(children)('SignOutButton');
+    const clickHandler = () => {
+        return clerk.signOut(signOutCallback, signOutOptions);
+    };
+    const wrappedChildClickHandler = async (e) => {
+        await (0, utils_1.safeExecute)(child.props.onClick)(e);
+        return clickHandler();
+    };
+    const childProps = Object.assign(Object.assign({}, rest), { onClick: wrappedChildClickHandler });
+    return react_1.default.cloneElement(child, childProps);
+}, 'SignOutButton');
+//# sourceMappingURL=SignOutButton.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/components/SignUpButton.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/components/SignUpButton.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.SignUpButton = void 0;
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+const react_1 = tslib_1.__importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const utils_1 = __webpack_require__(/*! ../utils */ "./node_modules/@clerk/clerk-react/dist/utils/index.js");
+const withClerk_1 = __webpack_require__(/*! ./withClerk */ "./node_modules/@clerk/clerk-react/dist/components/withClerk.js");
+exports.SignUpButton = (0, withClerk_1.withClerk)((_a) => {
+    var { clerk, children } = _a, props = tslib_1.__rest(_a, ["clerk", "children"]);
+    const { afterSignInUrl, afterSignUpUrl, redirectUrl, mode } = props, rest = tslib_1.__rest(props, ["afterSignInUrl", "afterSignUpUrl", "redirectUrl", "mode"]);
+    children = (0, utils_1.normalizeWithDefaultValue)(children, 'Sign up');
+    const child = (0, utils_1.assertSingleChild)(children)('SignUpButton');
+    const clickHandler = () => {
+        const opts = { afterSignInUrl, afterSignUpUrl, redirectUrl };
+        if (mode === 'modal') {
+            return clerk.openSignUp(opts);
+        }
+        return clerk.redirectToSignUp(opts);
+    };
+    const wrappedChildClickHandler = async (e) => {
+        await (0, utils_1.safeExecute)(child.props.onClick)(e);
+        return clickHandler();
+    };
+    const childProps = Object.assign(Object.assign({}, rest), { onClick: wrappedChildClickHandler });
+    return react_1.default.cloneElement(child, childProps);
+}, 'SignUpButton');
+//# sourceMappingURL=SignUpButton.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/components/controlComponents.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/components/controlComponents.js ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.MultisessionAppSupport = exports.AuthenticateWithRedirectCallback = exports.RedirectToUserProfile = exports.RedirectToSignUp = exports.RedirectToSignIn = exports.ClerkLoading = exports.ClerkLoaded = exports.SignedOut = exports.SignedIn = void 0;
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+const react_1 = tslib_1.__importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const AuthContext_1 = __webpack_require__(/*! ../contexts/AuthContext */ "./node_modules/@clerk/clerk-react/dist/contexts/AuthContext.js");
+const IsomorphicClerkContext_1 = __webpack_require__(/*! ../contexts/IsomorphicClerkContext */ "./node_modules/@clerk/clerk-react/dist/contexts/IsomorphicClerkContext.js");
+const SessionContext_1 = __webpack_require__(/*! ../contexts/SessionContext */ "./node_modules/@clerk/clerk-react/dist/contexts/SessionContext.js");
+const StructureContext_1 = __webpack_require__(/*! ../contexts/StructureContext */ "./node_modules/@clerk/clerk-react/dist/contexts/StructureContext.js");
+const withClerk_1 = __webpack_require__(/*! ./withClerk */ "./node_modules/@clerk/clerk-react/dist/components/withClerk.js");
+const SignedIn = ({ children }) => {
+    const { userId } = (0, AuthContext_1.useAuthContext)();
+    if (userId) {
+        return react_1.default.createElement(react_1.default.Fragment, null, children);
+    }
+    return null;
+};
+exports.SignedIn = SignedIn;
+const SignedOut = ({ children }) => {
+    const { userId } = (0, AuthContext_1.useAuthContext)();
+    if (userId === null) {
+        return react_1.default.createElement(react_1.default.Fragment, null, children);
+    }
+    return null;
+};
+exports.SignedOut = SignedOut;
+const ClerkLoaded = ({ children }) => {
+    const isomorphicClerk = (0, IsomorphicClerkContext_1.useIsomorphicClerkContext)();
+    if (!isomorphicClerk.loaded) {
+        return null;
+    }
+    return react_1.default.createElement(StructureContext_1.LoadedGuarantee, null, children);
+};
+exports.ClerkLoaded = ClerkLoaded;
+const ClerkLoading = ({ children }) => {
+    const isomorphicClerk = (0, IsomorphicClerkContext_1.useIsomorphicClerkContext)();
+    if (isomorphicClerk.loaded) {
+        return null;
+    }
+    return react_1.default.createElement(react_1.default.Fragment, null, children);
+};
+exports.ClerkLoading = ClerkLoading;
+exports.RedirectToSignIn = (0, withClerk_1.withClerk)((_a) => {
+    var { clerk } = _a, props = tslib_1.__rest(_a, ["clerk"]);
+    const { client, session } = clerk;
+    // TODO: Remove temp use of __unstable__environment
+    const { __unstable__environment } = clerk;
+    const hasActiveSessions = client.activeSessions && client.activeSessions.length > 0;
+    react_1.default.useEffect(() => {
+        if (session === null && hasActiveSessions && __unstable__environment) {
+            const { afterSignOutOneUrl } = __unstable__environment.displayConfig;
+            void clerk.navigate(afterSignOutOneUrl);
+        }
+        else {
+            void clerk.redirectToSignIn(props);
+        }
+    }, []);
+    return null;
+}, 'RedirectToSignIn');
+exports.RedirectToSignUp = (0, withClerk_1.withClerk)((_a) => {
+    var { clerk } = _a, props = tslib_1.__rest(_a, ["clerk"]);
+    react_1.default.useEffect(() => {
+        void clerk.redirectToSignUp(props);
+    }, []);
+    return null;
+}, 'RedirectToSignUp');
+exports.RedirectToUserProfile = (0, withClerk_1.withClerk)(({ clerk }) => {
+    react_1.default.useEffect(() => {
+        clerk.redirectToUserProfile();
+    }, []);
+    return null;
+}, 'RedirectToUserProfile');
+exports.AuthenticateWithRedirectCallback = (0, withClerk_1.withClerk)((_a) => {
+    var { clerk } = _a, handleRedirectCallbackParams = tslib_1.__rest(_a, ["clerk"]);
+    react_1.default.useEffect(() => {
+        void clerk.handleRedirectCallback(handleRedirectCallbackParams);
+    }, []);
+    return null;
+}, 'AuthenticateWithRedirectCallback');
+const MultisessionAppSupport = ({ children }) => {
+    const session = (0, SessionContext_1.useSessionContext)();
+    return react_1.default.createElement(react_1.default.Fragment, { key: session ? session.id : 'no-users' }, children);
+};
+exports.MultisessionAppSupport = MultisessionAppSupport;
+//# sourceMappingURL=controlComponents.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/components/index.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/components/index.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.MultisessionAppSupport = exports.AuthenticateWithRedirectCallback = exports.RedirectToUserProfile = exports.RedirectToSignUp = exports.RedirectToSignIn = exports.SignedIn = exports.SignedOut = exports.ClerkLoading = exports.ClerkLoaded = exports.UserButton = exports.UserProfile = exports.SignIn = exports.SignUp = void 0;
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+var uiComponents_1 = __webpack_require__(/*! ./uiComponents */ "./node_modules/@clerk/clerk-react/dist/components/uiComponents.js");
+Object.defineProperty(exports, "SignUp", ({ enumerable: true, get: function () { return uiComponents_1.SignUp; } }));
+Object.defineProperty(exports, "SignIn", ({ enumerable: true, get: function () { return uiComponents_1.SignIn; } }));
+Object.defineProperty(exports, "UserProfile", ({ enumerable: true, get: function () { return uiComponents_1.UserProfile; } }));
+Object.defineProperty(exports, "UserButton", ({ enumerable: true, get: function () { return uiComponents_1.UserButton; } }));
+var controlComponents_1 = __webpack_require__(/*! ./controlComponents */ "./node_modules/@clerk/clerk-react/dist/components/controlComponents.js");
+Object.defineProperty(exports, "ClerkLoaded", ({ enumerable: true, get: function () { return controlComponents_1.ClerkLoaded; } }));
+Object.defineProperty(exports, "ClerkLoading", ({ enumerable: true, get: function () { return controlComponents_1.ClerkLoading; } }));
+Object.defineProperty(exports, "SignedOut", ({ enumerable: true, get: function () { return controlComponents_1.SignedOut; } }));
+Object.defineProperty(exports, "SignedIn", ({ enumerable: true, get: function () { return controlComponents_1.SignedIn; } }));
+Object.defineProperty(exports, "RedirectToSignIn", ({ enumerable: true, get: function () { return controlComponents_1.RedirectToSignIn; } }));
+Object.defineProperty(exports, "RedirectToSignUp", ({ enumerable: true, get: function () { return controlComponents_1.RedirectToSignUp; } }));
+Object.defineProperty(exports, "RedirectToUserProfile", ({ enumerable: true, get: function () { return controlComponents_1.RedirectToUserProfile; } }));
+Object.defineProperty(exports, "AuthenticateWithRedirectCallback", ({ enumerable: true, get: function () { return controlComponents_1.AuthenticateWithRedirectCallback; } }));
+Object.defineProperty(exports, "MultisessionAppSupport", ({ enumerable: true, get: function () { return controlComponents_1.MultisessionAppSupport; } }));
+tslib_1.__exportStar(__webpack_require__(/*! ./withClerk */ "./node_modules/@clerk/clerk-react/dist/components/withClerk.js"), exports);
+tslib_1.__exportStar(__webpack_require__(/*! ./withUser */ "./node_modules/@clerk/clerk-react/dist/components/withUser.js"), exports);
+tslib_1.__exportStar(__webpack_require__(/*! ./withSession */ "./node_modules/@clerk/clerk-react/dist/components/withSession.js"), exports);
+tslib_1.__exportStar(__webpack_require__(/*! ./SignInButton */ "./node_modules/@clerk/clerk-react/dist/components/SignInButton.js"), exports);
+tslib_1.__exportStar(__webpack_require__(/*! ./SignUpButton */ "./node_modules/@clerk/clerk-react/dist/components/SignUpButton.js"), exports);
+tslib_1.__exportStar(__webpack_require__(/*! ./SignOutButton */ "./node_modules/@clerk/clerk-react/dist/components/SignOutButton.js"), exports);
+tslib_1.__exportStar(__webpack_require__(/*! ./SignInWithMetamaskButton */ "./node_modules/@clerk/clerk-react/dist/components/SignInWithMetamaskButton.js"), exports);
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/components/uiComponents.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/components/uiComponents.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.UserButton = exports.UserProfile = exports.SignUp = exports.SignIn = void 0;
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+const react_1 = tslib_1.__importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const withClerk_1 = __webpack_require__(/*! ./withClerk */ "./node_modules/@clerk/clerk-react/dist/components/withClerk.js");
+// README: <Portal/> should be a class pure component in order for mount and unmount
+// lifecycle props to be invoked correctly. Replacing the class component with a
+// functional component wrapped with a React.memo is not identical to the original
+// class implementation due to React intricacies such as the useEffect’s cleanup
+// seems to run AFTER unmount, while componentWillUnmount runs BEFORE.
+// More information can be found at https://clerkinc.slack.com/archives/C015S0BGH8R/p1624891993016300
+// The function Portal implementation is commented out for future reference.
+// const Portal = React.memo(({ props, mount, unmount }: MountProps) => {
+//   const portalRef = React.createRef<HTMLDivElement>();
+//   useEffect(() => {
+//     if (portalRef.current) {
+//       mount(portalRef.current, props);
+//     }
+//     return () => {
+//       if (portalRef.current) {
+//         unmount(portalRef.current);
+//       }
+//     };
+//   }, []);
+//   return <div ref={portalRef} />;
+// });
+// Portal.displayName = 'ClerkPortal';
+class Portal extends react_1.default.PureComponent {
+    constructor() {
+        super(...arguments);
+        this.portalRef = react_1.default.createRef();
+    }
+    componentDidUpdate(prevProps) {
+        if (prevProps.props.appearance !== this.props.props.appearance) {
+            this.props.updateProps({ node: this.portalRef.current, props: this.props.props });
+        }
+    }
+    componentDidMount() {
+        if (this.portalRef.current) {
+            this.props.mount(this.portalRef.current, this.props.props);
+        }
+    }
+    componentWillUnmount() {
+        if (this.portalRef.current) {
+            this.props.unmount(this.portalRef.current);
+        }
+    }
+    render() {
+        return react_1.default.createElement("div", { ref: this.portalRef });
+    }
+}
+exports.SignIn = (0, withClerk_1.withClerk)((_a) => {
+    var { clerk } = _a, props = tslib_1.__rest(_a, ["clerk"]);
+    return (react_1.default.createElement(Portal, { mount: clerk.mountSignIn, unmount: clerk.unmountSignIn, updateProps: clerk.__unstable__updateProps, props: props }));
+}, 'SignIn');
+exports.SignUp = (0, withClerk_1.withClerk)((_a) => {
+    var { clerk } = _a, props = tslib_1.__rest(_a, ["clerk"]);
+    return (react_1.default.createElement(Portal, { mount: clerk.mountSignUp, unmount: clerk.unmountSignUp, updateProps: clerk.__unstable__updateProps, props: props }));
+}, 'SignUp');
+exports.UserProfile = (0, withClerk_1.withClerk)((_a) => {
+    var { clerk } = _a, props = tslib_1.__rest(_a, ["clerk"]);
+    return (react_1.default.createElement(Portal, { mount: clerk.mountUserProfile, unmount: clerk.unmountUserProfile, updateProps: clerk.__unstable__updateProps, props: props }));
+}, 'UserProfile');
+exports.UserButton = (0, withClerk_1.withClerk)((_a) => {
+    var { clerk } = _a, props = tslib_1.__rest(_a, ["clerk"]);
+    return (react_1.default.createElement(Portal, { mount: clerk.mountUserButton, unmount: clerk.unmountUserButton, updateProps: clerk.__unstable__updateProps, props: props }));
+}, 'UserButton');
+//# sourceMappingURL=uiComponents.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/components/withClerk.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/components/withClerk.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.WithClerk = exports.withClerk = void 0;
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+const react_1 = tslib_1.__importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const IsomorphicClerkContext_1 = __webpack_require__(/*! ../contexts/IsomorphicClerkContext */ "./node_modules/@clerk/clerk-react/dist/contexts/IsomorphicClerkContext.js");
+const StructureContext_1 = __webpack_require__(/*! ../contexts/StructureContext */ "./node_modules/@clerk/clerk-react/dist/contexts/StructureContext.js");
+const errors_1 = __webpack_require__(/*! ../errors */ "./node_modules/@clerk/clerk-react/dist/errors.js");
+const withClerk = (Component, displayName) => {
+    displayName = displayName || Component.displayName || Component.name || 'Component';
+    Component.displayName = displayName;
+    const HOC = (props) => {
+        const clerk = (0, IsomorphicClerkContext_1.useIsomorphicClerkContext)();
+        if (!clerk.loaded) {
+            return null;
+        }
+        return (react_1.default.createElement(StructureContext_1.LoadedGuarantee, null,
+            react_1.default.createElement(Component, Object.assign({}, props, { clerk: clerk }))));
+    };
+    HOC.displayName = `withClerk(${displayName})`;
+    return HOC;
+};
+exports.withClerk = withClerk;
+const WithClerk = ({ children }) => {
+    const clerk = (0, IsomorphicClerkContext_1.useIsomorphicClerkContext)();
+    if (typeof children !== 'function') {
+        throw new Error(errors_1.hocChildrenNotAFunctionError);
+    }
+    if (!clerk.loaded) {
+        return null;
+    }
+    return react_1.default.createElement(StructureContext_1.LoadedGuarantee, null, children(clerk));
+};
+exports.WithClerk = WithClerk;
+//# sourceMappingURL=withClerk.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/components/withSession.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/components/withSession.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.WithSession = exports.withSession = void 0;
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+const react_1 = tslib_1.__importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const SessionContext_1 = __webpack_require__(/*! ../contexts/SessionContext */ "./node_modules/@clerk/clerk-react/dist/contexts/SessionContext.js");
+const errors_1 = __webpack_require__(/*! ../errors */ "./node_modules/@clerk/clerk-react/dist/errors.js");
+const withSession = (Component, displayName) => {
+    displayName = displayName || Component.displayName || Component.name || 'Component';
+    Component.displayName = displayName;
+    const HOC = (props) => {
+        const session = (0, SessionContext_1.useSessionContext)();
+        if (!session) {
+            return null;
+        }
+        return (react_1.default.createElement(Component, Object.assign({}, props, { session: session })));
+    };
+    HOC.displayName = `withSession(${displayName})`;
+    return HOC;
+};
+exports.withSession = withSession;
+const WithSession = ({ children }) => {
+    const session = (0, SessionContext_1.useSessionContext)();
+    if (typeof children !== 'function') {
+        throw new Error(errors_1.hocChildrenNotAFunctionError);
+    }
+    if (!session) {
+        return null;
+    }
+    return react_1.default.createElement(react_1.default.Fragment, null, children(session));
+};
+exports.WithSession = WithSession;
+//# sourceMappingURL=withSession.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/components/withUser.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/components/withUser.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.WithUser = exports.withUser = void 0;
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+const react_1 = tslib_1.__importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const UserContext_1 = __webpack_require__(/*! ../contexts/UserContext */ "./node_modules/@clerk/clerk-react/dist/contexts/UserContext.js");
+const errors_1 = __webpack_require__(/*! ../errors */ "./node_modules/@clerk/clerk-react/dist/errors.js");
+const withUser = (Component, displayName) => {
+    displayName = displayName || Component.displayName || Component.name || 'Component';
+    Component.displayName = displayName;
+    const HOC = (props) => {
+        const user = (0, UserContext_1.useUserContext)();
+        if (!user) {
+            return null;
+        }
+        return (react_1.default.createElement(Component, Object.assign({}, props, { user: user })));
+    };
+    HOC.displayName = `withUser(${displayName})`;
+    return HOC;
+};
+exports.withUser = withUser;
+const WithUser = ({ children }) => {
+    const user = (0, UserContext_1.useUserContext)();
+    if (typeof children !== 'function') {
+        throw new Error(errors_1.hocChildrenNotAFunctionError);
+    }
+    if (!user) {
+        return null;
+    }
+    return react_1.default.createElement(react_1.default.Fragment, null, children(user));
+};
+exports.WithUser = WithUser;
+//# sourceMappingURL=withUser.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/contexts/AuthContext.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/contexts/AuthContext.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.useAuthContext = exports.AuthContext = void 0;
+const makeContextAndHook_1 = __webpack_require__(/*! ../utils/makeContextAndHook */ "./node_modules/@clerk/clerk-react/dist/utils/makeContextAndHook.js");
+_a = (0, makeContextAndHook_1.makeContextAndHook)('AuthContext'), exports.AuthContext = _a[0], exports.useAuthContext = _a[1];
+//# sourceMappingURL=AuthContext.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/contexts/ClerkContextProvider.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/contexts/ClerkContextProvider.js ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ClerkContextProvider = void 0;
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+const react_1 = tslib_1.__importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const isomorphicClerk_1 = tslib_1.__importDefault(__webpack_require__(/*! ../isomorphicClerk */ "./node_modules/@clerk/clerk-react/dist/isomorphicClerk.js"));
+const AuthContext_1 = __webpack_require__(/*! ./AuthContext */ "./node_modules/@clerk/clerk-react/dist/contexts/AuthContext.js");
+const ClientContext_1 = __webpack_require__(/*! ./ClientContext */ "./node_modules/@clerk/clerk-react/dist/contexts/ClientContext.js");
+const IsomorphicClerkContext_1 = __webpack_require__(/*! ./IsomorphicClerkContext */ "./node_modules/@clerk/clerk-react/dist/contexts/IsomorphicClerkContext.js");
+const OrganizationContext_1 = __webpack_require__(/*! ./OrganizationContext */ "./node_modules/@clerk/clerk-react/dist/contexts/OrganizationContext.js");
+const SessionContext_1 = __webpack_require__(/*! ./SessionContext */ "./node_modules/@clerk/clerk-react/dist/contexts/SessionContext.js");
+const UserContext_1 = __webpack_require__(/*! ./UserContext */ "./node_modules/@clerk/clerk-react/dist/contexts/UserContext.js");
+function ClerkContextProvider(props) {
+    const { isomorphicClerkOptions, initialState, children } = props;
+    const { isomorphicClerk: clerk, loaded: clerkLoaded } = useLoadedIsomorphicClerk(isomorphicClerkOptions);
+    const [state, setState] = react_1.default.useState({
+        client: clerk.client,
+        session: clerk.session,
+        user: clerk.user,
+        organization: clerk.organization,
+        lastOrganizationInvitation: null,
+        lastOrganizationMember: null,
+    });
+    react_1.default.useEffect(() => {
+        return clerk.addListener(e => setState(Object.assign({}, e)));
+    }, []);
+    const derivedState = deriveState(clerkLoaded, state, initialState);
+    const clerkCtx = react_1.default.useMemo(() => ({ value: clerk }), [clerkLoaded]);
+    const clientCtx = react_1.default.useMemo(() => ({ value: state.client }), [state.client]);
+    const authCtx = react_1.default.useMemo(() => {
+        return {
+            value: { sessionId: derivedState.sessionId, userId: derivedState.userId },
+        };
+    }, [derivedState.sessionId, derivedState.userId]);
+    const userCtx = react_1.default.useMemo(() => {
+        return { value: derivedState.user };
+    }, [derivedState.userId, derivedState.user]);
+    const sessionCtx = react_1.default.useMemo(() => {
+        return { value: derivedState.session };
+    }, [derivedState.sessionId, derivedState.session]);
+    const organizationCtx = react_1.default.useMemo(() => {
+        return {
+            value: {
+                organization: derivedState.organization,
+                lastOrganizationInvitation: derivedState.lastOrganizationInvitation,
+                lastOrganizationMember: derivedState.lastOrganizationMember,
+            },
+        };
+    }, [derivedState.organization, derivedState.lastOrganizationInvitation, derivedState.lastOrganizationMember]);
+    return (react_1.default.createElement(IsomorphicClerkContext_1.IsomorphicClerkContext.Provider, { value: clerkCtx },
+        react_1.default.createElement(ClientContext_1.ClientContext.Provider, { value: clientCtx },
+            react_1.default.createElement(SessionContext_1.SessionContext.Provider, { value: sessionCtx },
+                react_1.default.createElement(OrganizationContext_1.OrganizationContext.Provider, { value: organizationCtx },
+                    react_1.default.createElement(AuthContext_1.AuthContext.Provider, { value: authCtx },
+                        react_1.default.createElement(UserContext_1.UserContext.Provider, { value: userCtx }, children)))))));
+}
+exports.ClerkContextProvider = ClerkContextProvider;
+const useLoadedIsomorphicClerk = (options) => {
+    const [loaded, setLoaded] = react_1.default.useState(false);
+    const isomorphicClerk = react_1.default.useMemo(() => isomorphicClerk_1.default.getOrCreateInstance(options), []);
+    react_1.default.useEffect(() => {
+        isomorphicClerk.__unstable__updateProps({ appearance: options.options.appearance });
+    }, [options.options.appearance]);
+    react_1.default.useEffect(() => {
+        isomorphicClerk.addOnLoaded(() => setLoaded(true));
+    }, []);
+    return { isomorphicClerk, loaded };
+};
+// This should be provided from isomorphicClerk
+// TODO: move inside isomorphicClerk
+function deriveState(clerkLoaded, state, initialState) {
+    if (!clerkLoaded && initialState) {
+        const userId = initialState.userId;
+        // TODO: Instantiate an actual user resource
+        const user = initialState.user;
+        const sessionId = initialState.sessionId;
+        // TODO: Instantiate an actual session resource
+        const session = initialState.session;
+        const organization = initialState.organization;
+        return {
+            sessionId,
+            session,
+            userId,
+            user,
+            organization,
+            lastOrganizationInvitation: null,
+            lastOrganizationMember: null,
+        };
+    }
+    const userId = state.user ? state.user.id : state.user;
+    const user = state.user;
+    const sessionId = state.session ? state.session.id : state.session;
+    const session = state.session;
+    const organization = state.organization;
+    const lastOrganizationInvitation = state.lastOrganizationInvitation;
+    const lastOrganizationMember = state.lastOrganizationMember;
+    return { sessionId, session, userId, user, organization, lastOrganizationInvitation, lastOrganizationMember };
+}
+//# sourceMappingURL=ClerkContextProvider.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/contexts/ClerkProvider.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/contexts/ClerkProvider.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ClerkProvider = void 0;
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+const react_1 = tslib_1.__importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const errors_1 = __webpack_require__(/*! ../errors */ "./node_modules/@clerk/clerk-react/dist/errors.js");
+const utils_1 = __webpack_require__(/*! ../utils */ "./node_modules/@clerk/clerk-react/dist/utils/index.js");
+const ClerkContextProvider_1 = __webpack_require__(/*! ./ClerkContextProvider */ "./node_modules/@clerk/clerk-react/dist/contexts/ClerkContextProvider.js");
+const StructureContext_1 = __webpack_require__(/*! ./StructureContext */ "./node_modules/@clerk/clerk-react/dist/contexts/StructureContext.js");
+function ClerkProviderBase(props) {
+    const { initialState, children, Clerk, frontendApi } = props, options = tslib_1.__rest(props, ["initialState", "children", "Clerk", "frontendApi"]);
+    return (react_1.default.createElement(StructureContext_1.StructureContext.Provider, { value: StructureContext_1.StructureContextStates.noGuarantees },
+        react_1.default.createElement(ClerkContextProvider_1.ClerkContextProvider, { initialState: initialState, isomorphicClerkOptions: { frontendApi: frontendApi || '', Clerk, options } }, children)));
+}
+const ClerkProvider = (0, utils_1.withMaxAllowedInstancesGuard)(ClerkProviderBase, 'ClerkProvider', errors_1.multipleClerkProvidersError);
+exports.ClerkProvider = ClerkProvider;
+ClerkProvider.displayName = 'ClerkProvider';
+//# sourceMappingURL=ClerkProvider.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/contexts/ClientContext.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/contexts/ClientContext.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.useClientContext = exports.ClientContext = void 0;
+const makeContextAndHook_1 = __webpack_require__(/*! ../utils/makeContextAndHook */ "./node_modules/@clerk/clerk-react/dist/utils/makeContextAndHook.js");
+/**
+ * @internal
+ */
+_a = (0, makeContextAndHook_1.makeContextAndHook)('ClientContext'), exports.ClientContext = _a[0], exports.useClientContext = _a[1];
+//# sourceMappingURL=ClientContext.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/contexts/IsomorphicClerkContext.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/contexts/IsomorphicClerkContext.js ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.useIsomorphicClerkContext = exports.IsomorphicClerkContext = void 0;
+const makeContextAndHook_1 = __webpack_require__(/*! ../utils/makeContextAndHook */ "./node_modules/@clerk/clerk-react/dist/utils/makeContextAndHook.js");
+/**
+ * @internal
+ */
+_a = (0, makeContextAndHook_1.makeContextAndHook)('IsomorphicClerkContext'), exports.IsomorphicClerkContext = _a[0], exports.useIsomorphicClerkContext = _a[1];
+//# sourceMappingURL=IsomorphicClerkContext.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/contexts/OrganizationContext.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/contexts/OrganizationContext.js ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.useOrganizationContext = exports.OrganizationContext = void 0;
+const makeContextAndHook_1 = __webpack_require__(/*! ../utils/makeContextAndHook */ "./node_modules/@clerk/clerk-react/dist/utils/makeContextAndHook.js");
+/**
+ * @internal
+ */
+_a = (0, makeContextAndHook_1.makeContextAndHook)('OrganizationContext'), exports.OrganizationContext = _a[0], exports.useOrganizationContext = _a[1];
+//# sourceMappingURL=OrganizationContext.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/contexts/SessionContext.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/contexts/SessionContext.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.useSessionContext = exports.SessionContext = void 0;
+const makeContextAndHook_1 = __webpack_require__(/*! ../utils/makeContextAndHook */ "./node_modules/@clerk/clerk-react/dist/utils/makeContextAndHook.js");
+/**
+ * @internal
+ */
+_a = (0, makeContextAndHook_1.makeContextAndHook)('SessionContext'), exports.SessionContext = _a[0], exports.useSessionContext = _a[1];
+//# sourceMappingURL=SessionContext.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/contexts/StructureContext.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/contexts/StructureContext.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.LoadedGuarantee = exports.StructureContext = exports.StructureContextStates = void 0;
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+const react_1 = tslib_1.__importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const assertHelpers_1 = __webpack_require__(/*! ./assertHelpers */ "./node_modules/@clerk/clerk-react/dist/contexts/assertHelpers.js");
+exports.StructureContextStates = Object.freeze({
+    noGuarantees: Object.freeze({
+        guaranteedLoaded: false,
+    }),
+    guaranteedLoaded: Object.freeze({
+        guaranteedLoaded: true,
+    }),
+});
+exports.StructureContext = react_1.default.createContext(undefined);
+exports.StructureContext.displayName = 'StructureContext';
+const useStructureContext = () => {
+    const structureCtx = react_1.default.useContext(exports.StructureContext);
+    (0, assertHelpers_1.assertWrappedByClerkProvider)(structureCtx);
+    return structureCtx;
+};
+const LoadedGuarantee = ({ children }) => {
+    const structure = useStructureContext();
+    if (structure.guaranteedLoaded) {
+        return react_1.default.createElement(react_1.default.Fragment, null, children);
+    }
+    return (react_1.default.createElement(exports.StructureContext.Provider, { value: exports.StructureContextStates.guaranteedLoaded }, children));
+};
+exports.LoadedGuarantee = LoadedGuarantee;
+//# sourceMappingURL=StructureContext.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/contexts/UserContext.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/contexts/UserContext.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.useUserContext = exports.UserContext = void 0;
+const makeContextAndHook_1 = __webpack_require__(/*! ../utils/makeContextAndHook */ "./node_modules/@clerk/clerk-react/dist/utils/makeContextAndHook.js");
+/**
+ * @internal
+ */
+_a = (0, makeContextAndHook_1.makeContextAndHook)('UserContext'), exports.UserContext = _a[0], exports.useUserContext = _a[1];
+//# sourceMappingURL=UserContext.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/contexts/assertHelpers.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/contexts/assertHelpers.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.assertClerkLoadedGuarantee = exports.assertWrappedByClerkProvider = void 0;
+const errors_1 = __webpack_require__(/*! ../errors */ "./node_modules/@clerk/clerk-react/dist/errors.js");
+function assertWrappedByClerkProvider(contextVal) {
+    if (!contextVal) {
+        throw new Error(errors_1.noClerkProviderError);
+    }
+}
+exports.assertWrappedByClerkProvider = assertWrappedByClerkProvider;
+function assertClerkLoadedGuarantee(guarantee, hookName) {
+    if (!guarantee) {
+        throw new Error((0, errors_1.noGuaranteedLoadedError)(hookName));
+    }
+}
+exports.assertClerkLoadedGuarantee = assertClerkLoadedGuarantee;
+//# sourceMappingURL=assertHelpers.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/contexts/index.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/contexts/index.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ClerkProvider = void 0;
+var ClerkProvider_1 = __webpack_require__(/*! ./ClerkProvider */ "./node_modules/@clerk/clerk-react/dist/contexts/ClerkProvider.js");
+Object.defineProperty(exports, "ClerkProvider", ({ enumerable: true, get: function () { return ClerkProvider_1.ClerkProvider; } }));
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/errors.js":
+/*!********************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/errors.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.invalidStateError = exports.isMagicLinkError = exports.MagicLinkErrorCode = exports.multipleChildrenInButtonComponent = exports.hocChildrenNotAFunctionError = exports.multipleClerkProvidersError = exports.noGuaranteedUserError = exports.noGuaranteedLoadedError = exports.noClerkProviderError = exports.noFrontendApiError = void 0;
+exports.noFrontendApiError = 'Clerk: You must add the frontendApi prop to your <ClerkProvider>';
+exports.noClerkProviderError = 'Clerk: You must wrap your application in a <ClerkProvider> component.';
+const noGuaranteedLoadedError = (hookName) => `Clerk: You're calling ${hookName} before there's a guarantee the client has been loaded. Call ${hookName} from a child of <SignedIn>, <SignedOut>, or <ClerkLoaded>, or use the withClerk() HOC.`;
+exports.noGuaranteedLoadedError = noGuaranteedLoadedError;
+const noGuaranteedUserError = (hookName) => `Clerk: You're calling ${hookName} before there's a guarantee there's an active user. Call ${hookName} from a child of <SignedIn> or use the withUser() HOC.`;
+exports.noGuaranteedUserError = noGuaranteedUserError;
+exports.multipleClerkProvidersError = "Clerk: You've added multiple <ClerkProvider> components in your React component tree. Wrap your components in a single <ClerkProvider>.";
+exports.hocChildrenNotAFunctionError = 'Clerk: Child of WithClerk must be a function.';
+const multipleChildrenInButtonComponent = (name) => `Clerk: You've passed multiple children components to <${name}/>. You can only pass a single child component or text.`;
+exports.multipleChildrenInButtonComponent = multipleChildrenInButtonComponent;
+exports.MagicLinkErrorCode = {
+    Expired: 'expired',
+    Failed: 'failed',
+};
+function isMagicLinkError(err) {
+    return !!err && (err.code === exports.MagicLinkErrorCode.Expired || err.code === exports.MagicLinkErrorCode.Failed);
+}
+exports.isMagicLinkError = isMagicLinkError;
+exports.invalidStateError = 'Invalid state. Feel free to submit a bug or reach out to support here: https://clerk.dev/support';
+//# sourceMappingURL=errors.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/hooks/index.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/hooks/index.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+tslib_1.__exportStar(__webpack_require__(/*! ./useUser */ "./node_modules/@clerk/clerk-react/dist/hooks/useUser.js"), exports);
+tslib_1.__exportStar(__webpack_require__(/*! ./useAuth */ "./node_modules/@clerk/clerk-react/dist/hooks/useAuth.js"), exports);
+tslib_1.__exportStar(__webpack_require__(/*! ./useSession */ "./node_modules/@clerk/clerk-react/dist/hooks/useSession.js"), exports);
+tslib_1.__exportStar(__webpack_require__(/*! ./useClerk */ "./node_modules/@clerk/clerk-react/dist/hooks/useClerk.js"), exports);
+tslib_1.__exportStar(__webpack_require__(/*! ./useSignIn */ "./node_modules/@clerk/clerk-react/dist/hooks/useSignIn.js"), exports);
+tslib_1.__exportStar(__webpack_require__(/*! ./useSignUp */ "./node_modules/@clerk/clerk-react/dist/hooks/useSignUp.js"), exports);
+tslib_1.__exportStar(__webpack_require__(/*! ./useSessionList */ "./node_modules/@clerk/clerk-react/dist/hooks/useSessionList.js"), exports);
+tslib_1.__exportStar(__webpack_require__(/*! ./useOrganization */ "./node_modules/@clerk/clerk-react/dist/hooks/useOrganization.js"), exports);
+tslib_1.__exportStar(__webpack_require__(/*! ./useOrganizationList */ "./node_modules/@clerk/clerk-react/dist/hooks/useOrganizationList.js"), exports);
+tslib_1.__exportStar(__webpack_require__(/*! ./useOrganizations */ "./node_modules/@clerk/clerk-react/dist/hooks/useOrganizations.js"), exports);
+tslib_1.__exportStar(__webpack_require__(/*! ./useMagicLink */ "./node_modules/@clerk/clerk-react/dist/hooks/useMagicLink.js"), exports);
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/hooks/useAuth.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/hooks/useAuth.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.useAuth = void 0;
+const AuthContext_1 = __webpack_require__(/*! ../contexts/AuthContext */ "./node_modules/@clerk/clerk-react/dist/contexts/AuthContext.js");
+const IsomorphicClerkContext_1 = __webpack_require__(/*! ../contexts/IsomorphicClerkContext */ "./node_modules/@clerk/clerk-react/dist/contexts/IsomorphicClerkContext.js");
+const errors_1 = __webpack_require__(/*! ../errors */ "./node_modules/@clerk/clerk-react/dist/errors.js");
+const utils_1 = __webpack_require__(/*! ./utils */ "./node_modules/@clerk/clerk-react/dist/hooks/utils.js");
+/**
+ * Returns the current auth state, the user and session ids and the `getToken`
+ * that can be used to retrieve the given template or the default Clerk token.
+ *
+ * Until Clerk loads, `isLoaded` will be set to `false`.
+ * Once Clerk loads, `isLoaded` will be set to `true`, and you can
+ * safely access the `userId` and `sessionId` variables.
+ *
+ * For projects using NextJs or Remix, you can have immediate access to this data  during SSR
+ * simply by using the `withServerSideAuth` helper.
+ *
+ * @example
+ * A simple example:
+ *
+ * import { useAuth } from '@clerk/clerk-react'
+ *
+ * function Hello() {
+ *   const { isSignedIn, sessionId, userId } = useAuth();
+ *   if(isSignedIn) {
+ *     return null;
+ *   }
+ *   console.log(sessionId, userId)
+ *   return <div>...</div>
+ * }
+ *
+ * @example
+ * Basic example in a NextJs app. This page will be fully rendered during SSR:
+ *
+ * import { useAuth } from '@clerk/nextjs'
+ * import { withServerSideAuth } from '@clerk/nextjs/api'
+ *
+ * export getServerSideProps = withServerSideAuth();
+ *
+ * export HelloPage = () => {
+ *   const { isSignedIn, sessionId, userId } = useAuth();
+ *   console.log(isSignedIn, sessionId, userId)
+ *   return <div>...</div>
+ * }
+ */
+const useAuth = () => {
+    const { sessionId, userId } = (0, AuthContext_1.useAuthContext)();
+    const isomorphicClerk = (0, IsomorphicClerkContext_1.useIsomorphicClerkContext)();
+    const getToken = (0, utils_1.createGetToken)(isomorphicClerk);
+    const signOut = (0, utils_1.createSignOut)(isomorphicClerk);
+    if (sessionId === undefined && userId === undefined) {
+        return {
+            isLoaded: false,
+            isSignedIn: undefined,
+            sessionId,
+            userId,
+            signOut,
+            getToken,
+        };
+    }
+    if (sessionId === null && userId === null) {
+        return {
+            isLoaded: true,
+            isSignedIn: false,
+            sessionId,
+            userId,
+            signOut,
+            getToken,
+        };
+    }
+    if (!!sessionId && !!userId) {
+        return {
+            isLoaded: true,
+            isSignedIn: true,
+            sessionId,
+            userId,
+            signOut,
+            getToken,
+        };
+    }
+    throw new Error(errors_1.invalidStateError);
+};
+exports.useAuth = useAuth;
+//# sourceMappingURL=useAuth.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/hooks/useClerk.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/hooks/useClerk.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.useClerk = void 0;
+const IsomorphicClerkContext_1 = __webpack_require__(/*! ../contexts/IsomorphicClerkContext */ "./node_modules/@clerk/clerk-react/dist/contexts/IsomorphicClerkContext.js");
+const useClerk = () => {
+    const isomorphicClerk = (0, IsomorphicClerkContext_1.useIsomorphicClerkContext)();
+    // The actual value is an instance of IsomorphicClerk, not Clerk
+    // we expose is as a Clerk instance
+    return isomorphicClerk;
+};
+exports.useClerk = useClerk;
+//# sourceMappingURL=useClerk.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/hooks/useMagicLink.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/hooks/useMagicLink.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.useMagicLink = void 0;
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+const react_1 = tslib_1.__importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+function useMagicLink(resource) {
+    const { startMagicLinkFlow, cancelMagicLinkFlow } = react_1.default.useMemo(() => resource.createMagicLinkFlow(), [resource]);
+    react_1.default.useEffect(() => {
+        return cancelMagicLinkFlow;
+    }, []);
+    return {
+        startMagicLinkFlow,
+        cancelMagicLinkFlow,
+    };
+}
+exports.useMagicLink = useMagicLink;
+//# sourceMappingURL=useMagicLink.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/hooks/useOrganization.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/hooks/useOrganization.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.useOrganization = void 0;
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+const swr_1 = tslib_1.__importDefault(__webpack_require__(/*! swr */ "./node_modules/swr/dist/index.esm.js"));
+const IsomorphicClerkContext_1 = __webpack_require__(/*! ../contexts/IsomorphicClerkContext */ "./node_modules/@clerk/clerk-react/dist/contexts/IsomorphicClerkContext.js");
+const OrganizationContext_1 = __webpack_require__(/*! ../contexts/OrganizationContext */ "./node_modules/@clerk/clerk-react/dist/contexts/OrganizationContext.js");
+const SessionContext_1 = __webpack_require__(/*! ../contexts/SessionContext */ "./node_modules/@clerk/clerk-react/dist/contexts/SessionContext.js");
+const useOrganization = ({ invitationList: invitationListParams, membershipList: membershipListParams, } = {}) => {
+    const { organization, lastOrganizationMember, lastOrganizationInvitation } = (0, OrganizationContext_1.useOrganizationContext)();
+    const session = (0, SessionContext_1.useSessionContext)();
+    const isomorphicClerk = (0, IsomorphicClerkContext_1.useIsomorphicClerkContext)();
+    const clerk = isomorphicClerk;
+    const shouldFetch = isomorphicClerk.loaded && session && organization;
+    // Some gymnastics to adhere to the rules of hooks
+    // We need to make sure useSWR is called on every render
+    const pendingInvitations = !isomorphicClerk.loaded
+        ? () => []
+        : () => { var _a; return (_a = clerk.organization) === null || _a === void 0 ? void 0 : _a.getPendingInvitations(invitationListParams); };
+    const currentOrganizationMemberships = !isomorphicClerk.loaded
+        ? () => []
+        : () => { var _a; return (_a = clerk.organization) === null || _a === void 0 ? void 0 : _a.getMemberships(membershipListParams); };
+    const { data: invitationList, isValidating: isInvitationsLoading } = (0, swr_1.default)(shouldFetch && invitationListParams
+        ? composeOrganizationResourcesUpdateKey(organization, lastOrganizationInvitation, 'invitations')
+        : null, pendingInvitations);
+    const { data: membershipList, isValidating: isMembershipsLoading } = (0, swr_1.default)(shouldFetch && membershipListParams
+        ? composeOrganizationResourcesUpdateKey(organization, lastOrganizationMember, 'memberships')
+        : null, currentOrganizationMemberships);
+    if (organization === undefined) {
+        return {
+            isLoaded: false,
+            organization: undefined,
+            invitationList: undefined,
+            membershipList: undefined,
+            membership: undefined,
+        };
+    }
+    if (organization === null) {
+        return {
+            isLoaded: true,
+            organization: null,
+            invitationList: null,
+            membershipList: null,
+            membership: null,
+        };
+    }
+    /** In SSR context we include only the organization object when loadOrg is set to true. */
+    if (!isomorphicClerk.loaded && organization) {
+        return {
+            isLoaded: true,
+            organization,
+            invitationList: undefined,
+            membershipList: undefined,
+            membership: undefined,
+        };
+    }
+    return {
+        isLoaded: !isMembershipsLoading && !isInvitationsLoading,
+        organization,
+        membershipList,
+        membership: getCurrentOrganizationMembership(session.user.organizationMemberships, organization.id),
+        invitationList,
+    };
+};
+exports.useOrganization = useOrganization;
+function getCurrentOrganizationMembership(organizationMemberships, activeOrganizationId) {
+    return organizationMemberships.find(organizationMembership => organizationMembership.organization.id === activeOrganizationId);
+}
+function composeOrganizationResourcesUpdateKey(organization, resource = null, resourceType) {
+    return `${organization.id}${resource === null || resource === void 0 ? void 0 : resource.id}${resource === null || resource === void 0 ? void 0 : resource.updatedAt}${resourceType}`;
+}
+//# sourceMappingURL=useOrganization.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/hooks/useOrganizationList.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/hooks/useOrganizationList.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.useOrganizationList = void 0;
+const IsomorphicClerkContext_1 = __webpack_require__(/*! ../contexts/IsomorphicClerkContext */ "./node_modules/@clerk/clerk-react/dist/contexts/IsomorphicClerkContext.js");
+const UserContext_1 = __webpack_require__(/*! ../contexts/UserContext */ "./node_modules/@clerk/clerk-react/dist/contexts/UserContext.js");
+const useOrganizationList = () => {
+    const isomorphicClerk = (0, IsomorphicClerkContext_1.useIsomorphicClerkContext)();
+    const user = (0, UserContext_1.useUserContext)();
+    // TODO: Properly check for SSR user values
+    if (!isomorphicClerk.loaded || !user) {
+        return { isLoaded: false, organizationList: undefined, createOrganization: undefined, setActive: undefined };
+    }
+    const clerk = isomorphicClerk;
+    return {
+        isLoaded: true,
+        organizationList: createOrganizationList(user.organizationMemberships),
+        setActive: clerk.setActive,
+        createOrganization: clerk.createOrganization,
+    };
+};
+exports.useOrganizationList = useOrganizationList;
+function createOrganizationList(organizationMemberships) {
+    return organizationMemberships.map(organizationMembership => ({
+        membership: organizationMembership,
+        organization: organizationMembership.organization,
+    }));
+}
+//# sourceMappingURL=useOrganizationList.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/hooks/useOrganizations.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/hooks/useOrganizations.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.useOrganizations = void 0;
+const IsomorphicClerkContext_1 = __webpack_require__(/*! ../contexts/IsomorphicClerkContext */ "./node_modules/@clerk/clerk-react/dist/contexts/IsomorphicClerkContext.js");
+const useOrganizations = () => {
+    const isomorphicClerk = (0, IsomorphicClerkContext_1.useIsomorphicClerkContext)();
+    if (!isomorphicClerk.loaded) {
+        return {
+            isLoaded: false,
+            createOrganization: undefined,
+            getOrganizationMemberships: undefined,
+            getOrganization: undefined,
+        };
+    }
+    const clerk = isomorphicClerk;
+    return {
+        isLoaded: true,
+        createOrganization: clerk.createOrganization,
+        getOrganizationMemberships: clerk.getOrganizationMemberships,
+        getOrganization: clerk.getOrganization,
+    };
+};
+exports.useOrganizations = useOrganizations;
+//# sourceMappingURL=useOrganizations.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/hooks/useSession.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/hooks/useSession.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.useSession = void 0;
+const SessionContext_1 = __webpack_require__(/*! ../contexts/SessionContext */ "./node_modules/@clerk/clerk-react/dist/contexts/SessionContext.js");
+/**
+ * Returns the current auth state and if a session exists, the session object.
+ *
+ * Until Clerk loads and initializes, `isLoaded` will be set to `false`.
+ * Once Clerk loads, `isLoaded` will be set to `true`, and you can
+ * safely access `isSignedIn` state and `session`.
+ *
+ * For projects using NextJs or Remix, you can make this state available during SSR
+ * simply by using the `withServerSideAuth` helper and setting the `loadSession` flag to `true`.
+ *
+ * @example
+ * A simple example:
+ *
+ * import { useSession } from '@clerk/clerk-react'
+ *
+ * function Hello() {
+ *   const { isSignedIn, session } = useSession();
+ *   if(!isSignedIn) {
+ *     return null;
+ *   }
+ *   return <div>{session.updatedAt}</div>
+ * }
+ *
+ * @example
+ * Basic example in a NextJs app. This page will be fully rendered during SSR:
+ *
+ * import { useSession } from '@clerk/nextjs'
+ * import { withServerSideAuth } from '@clerk/nextjs/api'
+ *
+ * export getServerSideProps = withServerSideAuth({ loadSession: true});
+ *
+ * export HelloPage = () => {
+ *   const { isSignedIn, session } = useSession();
+ *   if(!isSignedIn) {
+ *     return null;
+ *   }
+ *  return <div>{session.updatedAt}</div>
+ * }
+ */
+const useSession = () => {
+    const session = (0, SessionContext_1.useSessionContext)();
+    if (session === undefined) {
+        return { isLoaded: false, isSignedIn: undefined, session: undefined };
+    }
+    if (session === null) {
+        return { isLoaded: true, isSignedIn: false, session: null };
+    }
+    return { isLoaded: true, isSignedIn: true, session };
+};
+exports.useSession = useSession;
+//# sourceMappingURL=useSession.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/hooks/useSessionList.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/hooks/useSessionList.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.useSessionList = void 0;
+const ClientContext_1 = __webpack_require__(/*! ../contexts/ClientContext */ "./node_modules/@clerk/clerk-react/dist/contexts/ClientContext.js");
+const IsomorphicClerkContext_1 = __webpack_require__(/*! ../contexts/IsomorphicClerkContext */ "./node_modules/@clerk/clerk-react/dist/contexts/IsomorphicClerkContext.js");
+const useSessionList = () => {
+    const isomorphicClerk = (0, IsomorphicClerkContext_1.useIsomorphicClerkContext)();
+    const client = (0, ClientContext_1.useClientContext)();
+    if (!client) {
+        return { isLoaded: false, sessions: undefined, setSession: undefined, setActive: undefined };
+    }
+    return {
+        isLoaded: true,
+        sessions: client.sessions,
+        setSession: isomorphicClerk.setSession,
+        setActive: isomorphicClerk.setActive,
+    };
+};
+exports.useSessionList = useSessionList;
+//# sourceMappingURL=useSessionList.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/hooks/useSignIn.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/hooks/useSignIn.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.useSignIn = void 0;
+const ClientContext_1 = __webpack_require__(/*! ../contexts/ClientContext */ "./node_modules/@clerk/clerk-react/dist/contexts/ClientContext.js");
+const IsomorphicClerkContext_1 = __webpack_require__(/*! ../contexts/IsomorphicClerkContext */ "./node_modules/@clerk/clerk-react/dist/contexts/IsomorphicClerkContext.js");
+const useSignIn = () => {
+    const isomorphicClerk = (0, IsomorphicClerkContext_1.useIsomorphicClerkContext)();
+    const client = (0, ClientContext_1.useClientContext)();
+    if (!client) {
+        return { isLoaded: false, signIn: undefined, setSession: undefined, setActive: undefined };
+    }
+    return {
+        isLoaded: true,
+        signIn: client.signIn,
+        setSession: isomorphicClerk.setSession,
+        setActive: isomorphicClerk.setActive,
+    };
+};
+exports.useSignIn = useSignIn;
+//# sourceMappingURL=useSignIn.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/hooks/useSignUp.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/hooks/useSignUp.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.useSignUp = void 0;
+const ClientContext_1 = __webpack_require__(/*! ../contexts/ClientContext */ "./node_modules/@clerk/clerk-react/dist/contexts/ClientContext.js");
+const IsomorphicClerkContext_1 = __webpack_require__(/*! ../contexts/IsomorphicClerkContext */ "./node_modules/@clerk/clerk-react/dist/contexts/IsomorphicClerkContext.js");
+const useSignUp = () => {
+    const isomorphicClerk = (0, IsomorphicClerkContext_1.useIsomorphicClerkContext)();
+    const client = (0, ClientContext_1.useClientContext)();
+    if (!client) {
+        return { isLoaded: false, signUp: undefined, setSession: undefined, setActive: undefined };
+    }
+    return {
+        isLoaded: true,
+        signUp: client.signUp,
+        setSession: isomorphicClerk.setSession,
+        setActive: isomorphicClerk.setActive,
+    };
+};
+exports.useSignUp = useSignUp;
+//# sourceMappingURL=useSignUp.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/hooks/useUser.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/hooks/useUser.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.useUser = void 0;
+const UserContext_1 = __webpack_require__(/*! ../contexts/UserContext */ "./node_modules/@clerk/clerk-react/dist/contexts/UserContext.js");
+/**
+ * Returns the current auth state and if a user is signed in, the user object.
+ *
+ * Until Clerk loads and initializes, `isLoaded` will be set to `false`.
+ * Once Clerk loads, `isLoaded` will be set to `true`, and you can
+ * safely access `isSignedIn` state and `user`.
+ *
+ * For projects using NextJs or Remix, you can make this state available during SSR
+ * simply by using the `withServerSideAuth` helper and setting the `loadUser` flag to `true`.
+ *
+ * If you want to disable strict type checking, pass the generic `guaranteed` type flag
+ * as shown in the last example below.
+ *
+ * @example
+ * A simple example:
+ *
+ * import { useUser } from '@clerk/clerk-react'
+ *
+ * function Hello() {
+ *   const { isSignedIn, user } = useUser();
+ *   if(!isSignedIn) {
+ *     return null;
+ *   }
+ *   return <div>Hello, {user.firstName}</div>
+ * }
+ *
+ * @example
+ * Basic example in a NextJs app. This page will be fully rendered during SSR:
+ *
+ * import { useUser } from '@clerk/nextjs'
+ * import { withServerSideAuth } from '@clerk/nextjs/api'
+ *
+ * export getServerSideProps = withServerSideAuth({ loadUser: true});
+ *
+ * export HelloPage = () => {
+ *   const { isSignedIn, user } = useUser();
+ *   if(!isSignedIn) {
+ *     return null;
+ *   }
+ *   return <div>Hello, {user.firstName}</div>
+ * }
+ *
+ * @example
+ * Disable strict type checking:
+ *
+ * function Hello() {
+ *   const { user } = useUser<guaranteed>();
+ *   return <div>Hello, {user.firstName}</div>
+ * }
+ */
+function useUser() {
+    const user = (0, UserContext_1.useUserContext)();
+    if (user === undefined) {
+        return { isLoaded: false, isSignedIn: undefined, user: undefined };
+    }
+    if (user === null) {
+        return { isLoaded: true, isSignedIn: false, user: null };
+    }
+    return { isLoaded: true, isSignedIn: true, user };
+}
+exports.useUser = useUser;
+//# sourceMappingURL=useUser.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/hooks/utils.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/hooks/utils.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.createSignOut = exports.createGetToken = void 0;
+/**
+ * @internal
+ */
+const clerkLoaded = (isomorphicClerk) => {
+    return new Promise(resolve => {
+        if (isomorphicClerk.loaded) {
+            resolve();
+        }
+        isomorphicClerk.addOnLoaded(resolve);
+    });
+};
+/**
+ * @internal
+ */
+const createGetToken = (isomorphicClerk) => async (options) => {
+    await clerkLoaded(isomorphicClerk);
+    if (!isomorphicClerk.session) {
+        return null;
+    }
+    return isomorphicClerk.session.getToken(options);
+};
+exports.createGetToken = createGetToken;
+/**
+ * @internal
+ */
+const createSignOut = (isomorphicClerk) => async (...args) => {
+    await clerkLoaded(isomorphicClerk);
+    return isomorphicClerk.signOut(...args);
+};
+exports.createSignOut = createSignOut;
+//# sourceMappingURL=utils.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/index.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/index.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.useMagicLink = exports.MagicLinkErrorCode = exports.isMagicLinkError = void 0;
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+tslib_1.__exportStar(__webpack_require__(/*! ./contexts */ "./node_modules/@clerk/clerk-react/dist/contexts/index.js"), exports);
+tslib_1.__exportStar(__webpack_require__(/*! ./components */ "./node_modules/@clerk/clerk-react/dist/components/index.js"), exports);
+tslib_1.__exportStar(__webpack_require__(/*! ./hooks */ "./node_modules/@clerk/clerk-react/dist/hooks/index.js"), exports);
+var errors_1 = __webpack_require__(/*! ./errors */ "./node_modules/@clerk/clerk-react/dist/errors.js");
+Object.defineProperty(exports, "isMagicLinkError", ({ enumerable: true, get: function () { return errors_1.isMagicLinkError; } }));
+Object.defineProperty(exports, "MagicLinkErrorCode", ({ enumerable: true, get: function () { return errors_1.MagicLinkErrorCode; } }));
+var useMagicLink_1 = __webpack_require__(/*! ./hooks/useMagicLink */ "./node_modules/@clerk/clerk-react/dist/hooks/useMagicLink.js");
+Object.defineProperty(exports, "useMagicLink", ({ enumerable: true, get: function () { return useMagicLink_1.useMagicLink; } }));
+/**
+ * Vite does not define `global` by default
+ * One workaround is to use the `define` config prop
+ * https://vitejs.dev/config/#define
+ * We are solving this in the SDK level to reduce setup steps.
+ */
+if (typeof __webpack_require__.g === 'undefined' && typeof window !== 'undefined' && !window.global) {
+    window.global = window;
+}
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/info.js":
+/*!******************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/info.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.LIB_NAME = exports.LIB_VERSION = void 0;
+/** DO NOT EDIT: This file is automatically generated by ../scripts/info.js */
+exports.LIB_VERSION = '4.0.10';
+exports.LIB_NAME = '@clerk/clerk-react';
+//# sourceMappingURL=info.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/isomorphicClerk.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/isomorphicClerk.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+var _a, _IsomorphicClerk_loaded, _IsomorphicClerk_instance;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+const errors_1 = __webpack_require__(/*! ./errors */ "./node_modules/@clerk/clerk-react/dist/errors.js");
+const utils_1 = __webpack_require__(/*! ./utils */ "./node_modules/@clerk/clerk-react/dist/utils/index.js");
+class IsomorphicClerk {
+    constructor(params) {
+        this.clerkjs = null;
+        this.preopenSignIn = null;
+        this.preopenSignUp = null;
+        this.preopenUserProfile = null;
+        this.premountSignInNodes = new Map();
+        this.premountSignUpNodes = new Map();
+        this.premountUserProfileNodes = new Map();
+        this.premountUserButtonNodes = new Map();
+        this.premountMethodCalls = new Map();
+        this.loadedListeners = [];
+        _IsomorphicClerk_loaded.set(this, false);
+        this.addOnLoaded = (cb) => {
+            this.loadedListeners.push(cb);
+        };
+        this.emitLoaded = () => {
+            this.loadedListeners.forEach(cb => cb());
+            this.loadedListeners = [];
+        };
+        this.hydrateClerkJS = async (clerkjs) => {
+            if (!clerkjs) {
+                throw new Error('Failed to hydrate latest Clerk JS');
+            }
+            this.clerkjs = clerkjs;
+            this.premountMethodCalls.forEach(cb => cb());
+            if (this.preopenSignIn !== null) {
+                clerkjs.openSignIn(this.preopenSignIn);
+            }
+            if (this.preopenSignUp !== null) {
+                clerkjs.openSignUp(this.preopenSignUp);
+            }
+            if (this.preopenUserProfile !== null) {
+                clerkjs.openUserProfile(this.preopenUserProfile);
+            }
+            this.premountSignInNodes.forEach((props, node) => {
+                clerkjs.mountSignIn(node, props);
+            });
+            this.premountSignUpNodes.forEach((props, node) => {
+                clerkjs.mountSignUp(node, props);
+            });
+            this.premountUserProfileNodes.forEach((props, node) => {
+                clerkjs.mountUserProfile(node, props);
+            });
+            this.premountUserButtonNodes.forEach((props, node) => {
+                clerkjs.mountUserButton(node, props);
+            });
+            tslib_1.__classPrivateFieldSet(this, _IsomorphicClerk_loaded, true, "f");
+            this.emitLoaded();
+            return this.clerkjs;
+        };
+        this.__unstable__updateProps = (props) => {
+            // Handle case where accounts has clerk-react@4 installed, but clerk-js@3 is manually loaded
+            if (this.clerkjs && '__unstable__updateProps' in this.clerkjs) {
+                this.clerkjs.__unstable__updateProps(props);
+            }
+            else {
+                return undefined;
+            }
+        };
+        /**
+         * `setActive` can be used to set the active session and/or organization.
+         * It will eventually replace `setSession`.
+         *
+         * @experimental
+         */
+        this.setActive = ({ session, organization, beforeEmit }) => {
+            if (this.clerkjs) {
+                return this.clerkjs.setActive({ session, organization, beforeEmit });
+            }
+            else {
+                return Promise.reject();
+            }
+        };
+        this.setSession = (session, beforeEmit) => {
+            return this.setActive({ session, beforeEmit });
+        };
+        this.openSignIn = (props) => {
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                this.clerkjs.openSignIn(props);
+            }
+            else {
+                this.preopenSignIn = props;
+            }
+        };
+        this.closeSignIn = () => {
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                this.clerkjs.closeSignIn();
+            }
+            else {
+                this.preopenSignIn = null;
+            }
+        };
+        this.openUserProfile = (props) => {
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                this.clerkjs.openUserProfile(props);
+            }
+            else {
+                this.preopenUserProfile = props;
+            }
+        };
+        this.closeUserProfile = () => {
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                this.clerkjs.closeUserProfile();
+            }
+            else {
+                this.preopenUserProfile = null;
+            }
+        };
+        this.openSignUp = (props) => {
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                this.clerkjs.openSignUp(props);
+            }
+            else {
+                this.preopenSignUp = props;
+            }
+        };
+        this.closeSignUp = () => {
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                this.clerkjs.closeSignUp();
+            }
+            else {
+                this.preopenSignUp = null;
+            }
+        };
+        this.mountSignIn = (node, props) => {
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                this.clerkjs.mountSignIn(node, props);
+            }
+            else {
+                this.premountSignInNodes.set(node, props);
+            }
+        };
+        this.unmountSignIn = (node) => {
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                this.clerkjs.unmountSignIn(node);
+            }
+            else {
+                this.premountSignInNodes.delete(node);
+            }
+        };
+        this.mountSignUp = (node, props) => {
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                this.clerkjs.mountSignUp(node, props);
+            }
+            else {
+                this.premountSignUpNodes.set(node, props);
+            }
+        };
+        this.unmountSignUp = (node) => {
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                this.clerkjs.unmountSignUp(node);
+            }
+            else {
+                this.premountSignUpNodes.delete(node);
+            }
+        };
+        this.mountUserProfile = (node, props) => {
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                this.clerkjs.mountUserProfile(node, props);
+            }
+            else {
+                this.premountUserProfileNodes.set(node, props);
+            }
+        };
+        this.unmountUserProfile = (node) => {
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                this.clerkjs.unmountUserProfile(node);
+            }
+            else {
+                this.premountUserProfileNodes.delete(node);
+            }
+        };
+        this.mountUserButton = (node, userButtonProps) => {
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                this.clerkjs.mountUserButton(node, userButtonProps);
+            }
+            else {
+                this.premountUserButtonNodes.set(node, userButtonProps);
+            }
+        };
+        this.unmountUserButton = (node) => {
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                this.clerkjs.unmountUserButton(node);
+            }
+            else {
+                this.premountUserButtonNodes.delete(node);
+            }
+        };
+        this.addListener = (listener) => {
+            const callback = () => { var _b; return (_b = this.clerkjs) === null || _b === void 0 ? void 0 : _b.addListener(listener); };
+            if (this.clerkjs) {
+                callback();
+            }
+            else {
+                this.premountMethodCalls.set('addListener', callback);
+            }
+        };
+        this.navigate = (to) => {
+            const callback = () => { var _b; return (_b = this.clerkjs) === null || _b === void 0 ? void 0 : _b.navigate(to); };
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                void callback();
+            }
+            else {
+                this.premountMethodCalls.set('navigate', callback);
+            }
+        };
+        this.redirectToSignIn = (opts) => {
+            const callback = () => { var _b; return (_b = this.clerkjs) === null || _b === void 0 ? void 0 : _b.redirectToSignIn(opts); };
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                void callback();
+            }
+            else {
+                this.premountMethodCalls.set('redirectToSignIn', callback);
+            }
+        };
+        this.redirectToSignUp = (opts) => {
+            const callback = () => { var _b; return (_b = this.clerkjs) === null || _b === void 0 ? void 0 : _b.redirectToSignUp(opts); };
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                void callback();
+            }
+            else {
+                this.premountMethodCalls.set('redirectToSignUp', callback);
+            }
+        };
+        this.redirectToUserProfile = () => {
+            const callback = () => { var _b; return (_b = this.clerkjs) === null || _b === void 0 ? void 0 : _b.redirectToUserProfile(); };
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                callback();
+            }
+            else {
+                this.premountMethodCalls.set('redirectToUserProfile', callback);
+            }
+        };
+        this.handleRedirectCallback = (params) => {
+            const callback = () => { var _b; return (_b = this.clerkjs) === null || _b === void 0 ? void 0 : _b.handleRedirectCallback(params); };
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                void callback();
+            }
+            else {
+                this.premountMethodCalls.set('handleRedirectCallback', callback);
+            }
+        };
+        this.handleMagicLinkVerification = async (params) => {
+            const callback = () => { var _b; return (_b = this.clerkjs) === null || _b === void 0 ? void 0 : _b.handleMagicLinkVerification(params); };
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                return callback();
+            }
+            else {
+                this.premountMethodCalls.set('handleMagicLinkVerification', callback);
+            }
+        };
+        this.authenticateWithMetamask = async (params) => {
+            const callback = () => { var _b; return (_b = this.clerkjs) === null || _b === void 0 ? void 0 : _b.authenticateWithMetamask(params); };
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                return callback();
+            }
+            else {
+                this.premountMethodCalls.set('authenticateWithMetamask', callback);
+            }
+        };
+        this.createOrganization = async (params) => {
+            const callback = () => { var _b; return (_b = this.clerkjs) === null || _b === void 0 ? void 0 : _b.createOrganization(params); };
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                return callback();
+            }
+            else {
+                this.premountMethodCalls.set('createOrganization', callback);
+            }
+        };
+        this.getOrganizationMemberships = async () => {
+            const callback = () => { var _b; return (_b = this.clerkjs) === null || _b === void 0 ? void 0 : _b.getOrganizationMemberships(); };
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                return callback();
+            }
+            else {
+                this.premountMethodCalls.set('getOrganizationMemberships', callback);
+            }
+        };
+        this.getOrganization = async (organizationId) => {
+            const callback = () => { var _b; return (_b = this.clerkjs) === null || _b === void 0 ? void 0 : _b.getOrganization(organizationId); };
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                return callback();
+            }
+            else {
+                this.premountMethodCalls.set('getOrganization', callback);
+            }
+        };
+        this.signOut = async (signOutCallbackOrOptions, options) => {
+            const callback = () => { var _b; return (_b = this.clerkjs) === null || _b === void 0 ? void 0 : _b.signOut(signOutCallbackOrOptions, options); };
+            if (this.clerkjs && tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+                return callback();
+            }
+            else {
+                this.premountMethodCalls.set('signOut', callback);
+            }
+        };
+        const { Clerk = null, frontendApi, options = {} } = params || {};
+        this.frontendApi = frontendApi;
+        this.options = options;
+        this.Clerk = Clerk;
+        this.mode = (0, utils_1.inClientSide)() ? 'browser' : 'server';
+        void this.loadClerkJS();
+    }
+    get loaded() {
+        return tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f");
+    }
+    static getOrCreateInstance(params) {
+        // During SSR: a new instance should be created for every request
+        // During CSR: use the cached instance for the whole lifetime of the app
+        // This method should be idempotent in both scenarios
+        if (!(0, utils_1.inClientSide)() || !tslib_1.__classPrivateFieldGet(this, _a, "f", _IsomorphicClerk_instance)) {
+            tslib_1.__classPrivateFieldSet(this, _a, new IsomorphicClerk(params), "f", _IsomorphicClerk_instance);
+        }
+        return tslib_1.__classPrivateFieldGet(this, _a, "f", _IsomorphicClerk_instance);
+    }
+    async loadClerkJS() {
+        if (this.mode !== 'browser' || tslib_1.__classPrivateFieldGet(this, _IsomorphicClerk_loaded, "f")) {
+            return;
+        }
+        if (!this.frontendApi) {
+            this.throwError(errors_1.noFrontendApiError);
+        }
+        try {
+            if (this.Clerk) {
+                // Set a fixed Clerk version
+                let c;
+                if ((0, utils_1.isConstructor)(this.Clerk)) {
+                    // Construct a new Clerk object if a constructor is passed
+                    c = new this.Clerk(this.frontendApi);
+                    await c.load(this.options);
+                }
+                else {
+                    // Otherwise use the instantiated Clerk object
+                    c = this.Clerk;
+                    if (!c.isReady()) {
+                        await c.load(this.options);
+                    }
+                }
+                __webpack_require__.g.Clerk = c;
+            }
+            else {
+                // Hot-load latest ClerkJS from Clerk CDN
+                await (0, utils_1.loadScript)({
+                    frontendApi: this.frontendApi,
+                    scriptUrl: this.options.clerkJSUrl,
+                    scriptVariant: this.options.clerkJSVariant,
+                });
+                if (!__webpack_require__.g.Clerk) {
+                    throw new Error('Failed to download latest ClerkJS. Contact support@clerk.dev.');
+                }
+                await __webpack_require__.g.Clerk.load(this.options);
+            }
+            return this.hydrateClerkJS(__webpack_require__.g.Clerk);
+        }
+        catch (err) {
+            let message;
+            if (err instanceof Error) {
+                message = err.message;
+            }
+            else {
+                message = String(err);
+            }
+            this.throwError(message);
+            return;
+        }
+    }
+    // Custom wrapper to throw an error, since we need to apply different handling between
+    // production and development builds. In Next.js we can throw a full screen error in
+    // development mode. However, in production throwing an error results in an infinite loop
+    // as shown at https://github.com/vercel/next.js/issues/6973
+    throwError(errorMsg) {
+        if (false) {}
+        throw new Error(errorMsg);
+    }
+    get version() {
+        var _b;
+        return (_b = this.clerkjs) === null || _b === void 0 ? void 0 : _b.version;
+    }
+    get client() {
+        if (this.clerkjs) {
+            return this.clerkjs.client;
+            // TODO: add ssr condition
+        }
+        else {
+            return undefined;
+        }
+    }
+    get session() {
+        if (this.clerkjs) {
+            return this.clerkjs.session;
+            // TODO: add ssr condition
+        }
+        else {
+            return undefined;
+        }
+    }
+    get user() {
+        if (this.clerkjs) {
+            return this.clerkjs.user;
+        }
+        else {
+            return undefined;
+        }
+    }
+    get organization() {
+        if (this.clerkjs) {
+            return this.clerkjs.organization;
+        }
+        else {
+            return undefined;
+        }
+    }
+    // TODO: Remove temp use of __unstable__environment
+    get __unstable__environment() {
+        if (this.clerkjs) {
+            return this.clerkjs.__unstable__environment;
+            // TODO: add ssr condition
+        }
+        else {
+            return undefined;
+        }
+    }
+}
+exports["default"] = IsomorphicClerk;
+_a = IsomorphicClerk, _IsomorphicClerk_loaded = new WeakMap();
+_IsomorphicClerk_instance = { value: void 0 };
+//# sourceMappingURL=isomorphicClerk.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/utils/childrenUtils.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/utils/childrenUtils.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.safeExecute = exports.normalizeWithDefaultValue = exports.assertSingleChild = void 0;
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+const react_1 = tslib_1.__importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const errors_1 = __webpack_require__(/*! ../errors */ "./node_modules/@clerk/clerk-react/dist/errors.js");
+const assertSingleChild = (children) => (name) => {
+    try {
+        return react_1.default.Children.only(children);
+    }
+    catch (e) {
+        throw new Error((0, errors_1.multipleChildrenInButtonComponent)(name));
+    }
+};
+exports.assertSingleChild = assertSingleChild;
+const normalizeWithDefaultValue = (children, defaultText) => {
+    if (!children) {
+        children = defaultText;
+    }
+    if (typeof children === 'string') {
+        children = react_1.default.createElement("button", null, children);
+    }
+    return children;
+};
+exports.normalizeWithDefaultValue = normalizeWithDefaultValue;
+const safeExecute = (cb) => (...args) => {
+    if (cb && typeof cb === 'function') {
+        return cb(...args);
+    }
+};
+exports.safeExecute = safeExecute;
+//# sourceMappingURL=childrenUtils.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/utils/inClientSide.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/utils/inClientSide.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.inClientSide = void 0;
+const inClientSide = () => {
+    return typeof window !== 'undefined';
+};
+exports.inClientSide = inClientSide;
+//# sourceMappingURL=inClientSide.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/utils/index.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/utils/index.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+tslib_1.__exportStar(__webpack_require__(/*! ./isConstructor */ "./node_modules/@clerk/clerk-react/dist/utils/isConstructor.js"), exports);
+tslib_1.__exportStar(__webpack_require__(/*! ./scriptLoader */ "./node_modules/@clerk/clerk-react/dist/utils/scriptLoader.js"), exports);
+tslib_1.__exportStar(__webpack_require__(/*! ./useMaxAllowedInstancesGuard */ "./node_modules/@clerk/clerk-react/dist/utils/useMaxAllowedInstancesGuard.js"), exports);
+tslib_1.__exportStar(__webpack_require__(/*! ./childrenUtils */ "./node_modules/@clerk/clerk-react/dist/utils/childrenUtils.js"), exports);
+tslib_1.__exportStar(__webpack_require__(/*! ./inClientSide */ "./node_modules/@clerk/clerk-react/dist/utils/inClientSide.js"), exports);
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/utils/isConstructor.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/utils/isConstructor.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.isConstructor = void 0;
+function isConstructor(f) {
+    return typeof f === 'function';
+}
+exports.isConstructor = isConstructor;
+//# sourceMappingURL=isConstructor.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/utils/makeContextAndHook.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/utils/makeContextAndHook.js ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.makeContextAndHook = void 0;
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+const react_1 = tslib_1.__importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const assertHelpers_1 = __webpack_require__(/*! ../contexts/assertHelpers */ "./node_modules/@clerk/clerk-react/dist/contexts/assertHelpers.js");
+function makeContextAndHook(displayName, assertCtxFn = assertHelpers_1.assertWrappedByClerkProvider) {
+    const Ctx = react_1.default.createContext(undefined);
+    Ctx.displayName = displayName;
+    const useCtx = () => {
+        const ctx = react_1.default.useContext(Ctx);
+        assertCtxFn(ctx);
+        return ctx.value;
+    };
+    return [Ctx, useCtx];
+}
+exports.makeContextAndHook = makeContextAndHook;
+//# sourceMappingURL=makeContextAndHook.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/utils/scriptLoader.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/utils/scriptLoader.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.loadScript = void 0;
+const info_1 = __webpack_require__(/*! ../info */ "./node_modules/@clerk/clerk-react/dist/info.js");
+const FAILED_TO_LOAD_ERROR = 'Clerk: Failed to load Clerk';
+const MISSING_PROVIDER_ERROR = 'Clerk: Missing provider';
+const MISSING_BODY_ERROR = 'Clerk: Missing <body> element.';
+const UNSTABLE_RELEASE_TAGS = ['staging', 'next'];
+const extractNonStableTag = (packageVersion) => {
+    var _a;
+    const tag = (_a = packageVersion.match(/-(.*)\./)) === null || _a === void 0 ? void 0 : _a[1];
+    return tag && UNSTABLE_RELEASE_TAGS.includes(tag) ? tag : undefined;
+};
+const extractMajorVersion = (packageVersion) => {
+    return packageVersion.split('.')[0];
+};
+const forceStagingReleaseForClerkFapi = (frontendApi) => {
+    return (frontendApi.endsWith('.lclstage.dev') ||
+        frontendApi.endsWith('.stgstage.dev') ||
+        frontendApi.endsWith('.clerkstage.dev'));
+};
+function getScriptSrc({ frontendApi, scriptUrl, scriptVariant = '' }) {
+    if (scriptUrl) {
+        return scriptUrl;
+    }
+    const variant = scriptVariant ? `${scriptVariant.replace(/\.+$/, '')}.` : '';
+    const getUrlForTag = (target) => {
+        return `https://${frontendApi}/npm/@clerk/clerk-js@${target}/dist/clerk.${variant}browser.js`;
+    };
+    const nonStableTag = extractNonStableTag(info_1.LIB_VERSION);
+    if (forceStagingReleaseForClerkFapi(frontendApi)) {
+        return nonStableTag ? getUrlForTag(nonStableTag) : getUrlForTag('staging');
+    }
+    if (nonStableTag) {
+        return getUrlForTag(nonStableTag);
+    }
+    return getUrlForTag(extractMajorVersion(info_1.LIB_VERSION));
+}
+function loadScript(params) {
+    return new Promise((resolve, reject) => {
+        const { frontendApi } = params;
+        if (__webpack_require__.g.Clerk) {
+            resolve(null);
+        }
+        if (!frontendApi) {
+            reject(MISSING_PROVIDER_ERROR);
+        }
+        const script = document.createElement('script');
+        const src = getScriptSrc(params);
+        script.setAttribute('data-clerk-frontend-api', frontendApi);
+        script.setAttribute('crossorigin', 'anonymous');
+        script.async = true;
+        if (!document.body) {
+            reject(MISSING_BODY_ERROR);
+        }
+        script.addEventListener('load', () => resolve(script));
+        script.addEventListener('error', () => reject(FAILED_TO_LOAD_ERROR));
+        script.src = src;
+        document.body.appendChild(script);
+    });
+}
+exports.loadScript = loadScript;
+//# sourceMappingURL=scriptLoader.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@clerk/clerk-react/dist/utils/useMaxAllowedInstancesGuard.js":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/@clerk/clerk-react/dist/utils/useMaxAllowedInstancesGuard.js ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.withMaxAllowedInstancesGuard = exports.useMaxAllowedInstancesGuard = void 0;
+const tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+const react_1 = tslib_1.__importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const counts = new Map();
+function useMaxAllowedInstancesGuard(name, error, maxCount = 1) {
+    react_1.default.useEffect(() => {
+        const count = counts.get(name) || 0;
+        if (count == maxCount) {
+            throw new Error(error);
+        }
+        counts.set(name, count + 1);
+        return () => {
+            counts.set(name, (counts.get(name) || 1) - 1);
+        };
+    }, []);
+}
+exports.useMaxAllowedInstancesGuard = useMaxAllowedInstancesGuard;
+function withMaxAllowedInstancesGuard(WrappedComponent, name, error) {
+    const displayName = WrappedComponent.displayName || WrappedComponent.name || name || 'Component';
+    const Hoc = (props) => {
+        useMaxAllowedInstancesGuard(name, error);
+        return react_1.default.createElement(WrappedComponent, Object.assign({}, props));
+    };
+    Hoc.displayName = `withMaxAllowedInstancesGuard(${displayName})`;
+    return Hoc;
+}
+exports.withMaxAllowedInstancesGuard = withMaxAllowedInstancesGuard;
+//# sourceMappingURL=useMaxAllowedInstancesGuard.js.map
+
+/***/ }),
+
 /***/ "./frontend/actions/reservation_actions.js":
 /*!*************************************************!*\
   !*** ./frontend/actions/reservation_actions.js ***!
@@ -366,7 +2550,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _actions_restaurant_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/restaurant_actions */ "./frontend/actions/restaurant_actions.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var _clerk_clerk_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @clerk/clerk-react */ "./node_modules/@clerk/clerk-react/dist/index.js");
+/* harmony import */ var _clerk_clerk_react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_clerk_clerk_react__WEBPACK_IMPORTED_MODULE_3__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -385,9 +2571,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var restaurantShow = function restaurantShow() {
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useDispatch)();
-  var params = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)();
+  var params = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useParams)();
   console.log(params);
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
@@ -403,6 +2590,8 @@ var restaurantShow = function restaurantShow() {
     });
   };
 
+  var session = (0,_clerk_clerk_react__WEBPACK_IMPORTED_MODULE_3__.useSession)();
+  console.log(session);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     getRestaurant(id);
   }, []);
@@ -39890,6 +42079,1363 @@ if (
 
 if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/scheduler.development.js */ "./node_modules/scheduler/cjs/scheduler.development.js");
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/swr/dist/index.esm.js":
+/*!********************************************!*\
+  !*** ./node_modules/swr/dist/index.esm.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "SWRConfig": () => (/* binding */ SWRConfig),
+/* harmony export */   "default": () => (/* binding */ useSWR),
+/* harmony export */   "mutate": () => (/* binding */ mutate),
+/* harmony export */   "unstable_serialize": () => (/* binding */ unstable_serialize),
+/* harmony export */   "useSWRConfig": () => (/* binding */ useSWRConfig)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+
+function __awaiter(thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+}
+
+function __generator(thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+}
+
+var noop = function () { };
+// Using noop() as the undefined value as undefined can possibly be replaced
+// by something else.  Prettier ignore and extra parentheses are necessary here
+// to ensure that tsc doesn't remove the __NOINLINE__ comment.
+// prettier-ignore
+var UNDEFINED = ( /*#__NOINLINE__*/noop());
+var OBJECT = Object;
+var isUndefined = function (v) { return v === UNDEFINED; };
+var isFunction = function (v) { return typeof v == 'function'; };
+var mergeObjects = function (a, b) { return OBJECT.assign({}, a, b); };
+var STR_UNDEFINED = 'undefined';
+// NOTE: Use function to guarantee it's re-evaluated between jsdom and node runtime for tests.
+var hasWindow = function () { return typeof window != STR_UNDEFINED; };
+var hasDocument = function () { return typeof document != STR_UNDEFINED; };
+var hasRequestAnimationFrame = function () {
+    return hasWindow() && typeof window['requestAnimationFrame'] != STR_UNDEFINED;
+};
+
+// use WeakMap to store the object->key mapping
+// so the objects can be garbage collected.
+// WeakMap uses a hashtable under the hood, so the lookup
+// complexity is almost O(1).
+var table = new WeakMap();
+// counter of the key
+var counter = 0;
+// A stable hash implementation that supports:
+// - Fast and ensures unique hash properties
+// - Handles unserializable values
+// - Handles object key ordering
+// - Generates short results
+//
+// This is not a serialization function, and the result is not guaranteed to be
+// parsible.
+var stableHash = function (arg) {
+    var type = typeof arg;
+    var constructor = arg && arg.constructor;
+    var isDate = constructor == Date;
+    var result;
+    var index;
+    if (OBJECT(arg) === arg && !isDate && constructor != RegExp) {
+        // Object/function, not null/date/regexp. Use WeakMap to store the id first.
+        // If it's already hashed, directly return the result.
+        result = table.get(arg);
+        if (result)
+            return result;
+        // Store the hash first for circular reference detection before entering the
+        // recursive `stableHash` calls.
+        // For other objects like set and map, we use this id directly as the hash.
+        result = ++counter + '~';
+        table.set(arg, result);
+        if (constructor == Array) {
+            // Array.
+            result = '@';
+            for (index = 0; index < arg.length; index++) {
+                result += stableHash(arg[index]) + ',';
+            }
+            table.set(arg, result);
+        }
+        if (constructor == OBJECT) {
+            // Object, sort keys.
+            result = '#';
+            var keys = OBJECT.keys(arg).sort();
+            while (!isUndefined((index = keys.pop()))) {
+                if (!isUndefined(arg[index])) {
+                    result += index + ':' + stableHash(arg[index]) + ',';
+                }
+            }
+            table.set(arg, result);
+        }
+    }
+    else {
+        result = isDate
+            ? arg.toJSON()
+            : type == 'symbol'
+                ? arg.toString()
+                : type == 'string'
+                    ? JSON.stringify(arg)
+                    : '' + arg;
+    }
+    return result;
+};
+
+/**
+ * Due to bug https://bugs.chromium.org/p/chromium/issues/detail?id=678075,
+ * it's not reliable to detect if the browser is currently online or offline
+ * based on `navigator.onLine`.
+ * As a work around, we always assume it's online on first load, and change
+ * the status upon `online` or `offline` events.
+ */
+var online = true;
+var isOnline = function () { return online; };
+var hasWin = hasWindow();
+var hasDoc = hasDocument();
+// For node and React Native, `add/removeEventListener` doesn't exist on window.
+var onWindowEvent = hasWin && window.addEventListener
+    ? window.addEventListener.bind(window)
+    : noop;
+var onDocumentEvent = hasDoc ? document.addEventListener.bind(document) : noop;
+var offWindowEvent = hasWin && window.removeEventListener
+    ? window.removeEventListener.bind(window)
+    : noop;
+var offDocumentEvent = hasDoc
+    ? document.removeEventListener.bind(document)
+    : noop;
+var isVisible = function () {
+    var visibilityState = hasDoc && document.visibilityState;
+    return isUndefined(visibilityState) || visibilityState !== 'hidden';
+};
+var initFocus = function (callback) {
+    // focus revalidate
+    onDocumentEvent('visibilitychange', callback);
+    onWindowEvent('focus', callback);
+    return function () {
+        offDocumentEvent('visibilitychange', callback);
+        offWindowEvent('focus', callback);
+    };
+};
+var initReconnect = function (callback) {
+    // revalidate on reconnected
+    var onOnline = function () {
+        online = true;
+        callback();
+    };
+    // nothing to revalidate, just update the status
+    var onOffline = function () {
+        online = false;
+    };
+    onWindowEvent('online', onOnline);
+    onWindowEvent('offline', onOffline);
+    return function () {
+        offWindowEvent('online', onOnline);
+        offWindowEvent('offline', onOffline);
+    };
+};
+var preset = {
+    isOnline: isOnline,
+    isVisible: isVisible
+};
+var defaultConfigOptions = {
+    initFocus: initFocus,
+    initReconnect: initReconnect
+};
+
+var IS_SERVER = !hasWindow() || 'Deno' in window;
+// Polyfill requestAnimationFrame
+var rAF = function (f) {
+    return hasRequestAnimationFrame() ? window['requestAnimationFrame'](f) : setTimeout(f, 1);
+};
+// React currently throws a warning when using useLayoutEffect on the server.
+// To get around it, we can conditionally useEffect on the server (no-op) and
+// useLayoutEffect in the browser.
+var useIsomorphicLayoutEffect = IS_SERVER ? react__WEBPACK_IMPORTED_MODULE_0__.useEffect : react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect;
+// This assignment is to extend the Navigator type to use effectiveType.
+var navigatorConnection = typeof navigator !== 'undefined' &&
+    navigator.connection;
+// Adjust the config based on slow connection status (<= 70Kbps).
+var slowConnection = !IS_SERVER &&
+    navigatorConnection &&
+    (['slow-2g', '2g'].includes(navigatorConnection.effectiveType) ||
+        navigatorConnection.saveData);
+
+var serialize = function (key) {
+    if (isFunction(key)) {
+        try {
+            key = key();
+        }
+        catch (err) {
+            // dependencies not ready
+            key = '';
+        }
+    }
+    var args = [].concat(key);
+    // If key is not falsy, or not an empty array, hash it.
+    key =
+        typeof key == 'string'
+            ? key
+            : (Array.isArray(key) ? key.length : key)
+                ? stableHash(key)
+                : '';
+    var infoKey = key ? '$swr$' + key : '';
+    return [key, args, infoKey];
+};
+
+// Global state used to deduplicate requests and store listeners
+var SWRGlobalState = new WeakMap();
+
+var FOCUS_EVENT = 0;
+var RECONNECT_EVENT = 1;
+var MUTATE_EVENT = 2;
+
+var broadcastState = function (cache, key, data, error, isValidating, revalidate, broadcast) {
+    if (broadcast === void 0) { broadcast = true; }
+    var _a = SWRGlobalState.get(cache), EVENT_REVALIDATORS = _a[0], STATE_UPDATERS = _a[1], FETCH = _a[3];
+    var revalidators = EVENT_REVALIDATORS[key];
+    var updaters = STATE_UPDATERS[key];
+    // Cache was populated, update states of all hooks.
+    if (broadcast && updaters) {
+        for (var i = 0; i < updaters.length; ++i) {
+            updaters[i](data, error, isValidating);
+        }
+    }
+    // If we also need to revalidate, only do it for the first hook.
+    if (revalidate) {
+        // Invalidate the key by deleting the concurrent request markers so new
+        // requests will not be deduped.
+        delete FETCH[key];
+        if (revalidators && revalidators[0]) {
+            return revalidators[0](MUTATE_EVENT).then(function () {
+                return cache.get(key);
+            });
+        }
+    }
+    return cache.get(key);
+};
+
+// Global timestamp.
+var __timestamp = 0;
+var getTimestamp = function () { return ++__timestamp; };
+
+var internalMutate = function () {
+    var args = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        args[_i] = arguments[_i];
+    }
+    return __awaiter(void 0, void 0, void 0, function () {
+        var cache, _key, _data, _opts, options, populateCache, revalidate, rollbackOnError, customOptimisticData, _a, key, keyInfo, _b, MUTATION, data, error, beforeMutationTs, hasCustomOptimisticData, rollbackData, optimisticData, res;
+        return __generator(this, function (_c) {
+            switch (_c.label) {
+                case 0:
+                    cache = args[0], _key = args[1], _data = args[2], _opts = args[3];
+                    options = typeof _opts === 'boolean' ? { revalidate: _opts } : _opts || {};
+                    populateCache = isUndefined(options.populateCache)
+                        ? true
+                        : options.populateCache;
+                    revalidate = options.revalidate !== false;
+                    rollbackOnError = options.rollbackOnError !== false;
+                    customOptimisticData = options.optimisticData;
+                    _a = serialize(_key), key = _a[0], keyInfo = _a[2];
+                    if (!key)
+                        return [2 /*return*/];
+                    _b = SWRGlobalState.get(cache), MUTATION = _b[2];
+                    // If there is no new data provided, revalidate the key with current state.
+                    if (args.length < 3) {
+                        // Revalidate and broadcast state.
+                        return [2 /*return*/, broadcastState(cache, key, cache.get(key), UNDEFINED, UNDEFINED, revalidate, true)];
+                    }
+                    data = _data;
+                    beforeMutationTs = getTimestamp();
+                    MUTATION[key] = [beforeMutationTs, 0];
+                    hasCustomOptimisticData = !isUndefined(customOptimisticData);
+                    rollbackData = cache.get(key);
+                    // Do optimistic data update.
+                    if (hasCustomOptimisticData) {
+                        optimisticData = isFunction(customOptimisticData)
+                            ? customOptimisticData(rollbackData)
+                            : customOptimisticData;
+                        cache.set(key, optimisticData);
+                        broadcastState(cache, key, optimisticData);
+                    }
+                    if (isFunction(data)) {
+                        // `data` is a function, call it passing current cache value.
+                        try {
+                            data = data(cache.get(key));
+                        }
+                        catch (err) {
+                            // If it throws an error synchronously, we shouldn't update the cache.
+                            error = err;
+                        }
+                    }
+                    if (!(data && isFunction(data.then))) return [3 /*break*/, 2];
+                    return [4 /*yield*/, data.catch(function (err) {
+                            error = err;
+                        })
+                        // Check if other mutations have occurred since we've started this mutation.
+                        // If there's a race we don't update cache or broadcast the change,
+                        // just return the data.
+                    ];
+                case 1:
+                    // This means that the mutation is async, we need to check timestamps to
+                    // avoid race conditions.
+                    data = _c.sent();
+                    // Check if other mutations have occurred since we've started this mutation.
+                    // If there's a race we don't update cache or broadcast the change,
+                    // just return the data.
+                    if (beforeMutationTs !== MUTATION[key][0]) {
+                        if (error)
+                            throw error;
+                        return [2 /*return*/, data];
+                    }
+                    else if (error && hasCustomOptimisticData && rollbackOnError) {
+                        // Rollback. Always populate the cache in this case but without
+                        // transforming the data.
+                        populateCache = true;
+                        data = rollbackData;
+                        cache.set(key, rollbackData);
+                    }
+                    _c.label = 2;
+                case 2:
+                    // If we should write back the cache after request.
+                    if (populateCache) {
+                        if (!error) {
+                            // Transform the result into data.
+                            if (isFunction(populateCache)) {
+                                data = populateCache(data, rollbackData);
+                            }
+                            // Only update cached data if there's no error. Data can be `undefined` here.
+                            cache.set(key, data);
+                        }
+                        // Always update or reset the error.
+                        cache.set(keyInfo, mergeObjects(cache.get(keyInfo), { error: error }));
+                    }
+                    // Reset the timestamp to mark the mutation has ended.
+                    MUTATION[key][1] = getTimestamp();
+                    return [4 /*yield*/, broadcastState(cache, key, data, error, UNDEFINED, revalidate, !!populateCache)
+                        // Throw error or return data
+                    ];
+                case 3:
+                    res = _c.sent();
+                    // Throw error or return data
+                    if (error)
+                        throw error;
+                    return [2 /*return*/, populateCache ? res : data];
+            }
+        });
+    });
+};
+
+var revalidateAllKeys = function (revalidators, type) {
+    for (var key in revalidators) {
+        if (revalidators[key][0])
+            revalidators[key][0](type);
+    }
+};
+var initCache = function (provider, options) {
+    // The global state for a specific provider will be used to deduplicate
+    // requests and store listeners. As well as a mutate function that bound to
+    // the cache.
+    // Provider's global state might be already initialized. Let's try to get the
+    // global state associated with the provider first.
+    if (!SWRGlobalState.has(provider)) {
+        var opts = mergeObjects(defaultConfigOptions, options);
+        // If there's no global state bound to the provider, create a new one with the
+        // new mutate function.
+        var EVENT_REVALIDATORS = {};
+        var mutate = internalMutate.bind(UNDEFINED, provider);
+        var unmount = noop;
+        // Update the state if it's new, or the provider has been extended.
+        SWRGlobalState.set(provider, [EVENT_REVALIDATORS, {}, {}, {}, mutate]);
+        // This is a new provider, we need to initialize it and setup DOM events
+        // listeners for `focus` and `reconnect` actions.
+        if (!IS_SERVER) {
+            // When listening to the native events for auto revalidations,
+            // we intentionally put a delay (setTimeout) here to make sure they are
+            // fired after immediate JavaScript executions, which can possibly be
+            // React's state updates.
+            // This avoids some unnecessary revalidations such as
+            // https://github.com/vercel/swr/issues/1680.
+            var releaseFocus_1 = opts.initFocus(setTimeout.bind(UNDEFINED, revalidateAllKeys.bind(UNDEFINED, EVENT_REVALIDATORS, FOCUS_EVENT)));
+            var releaseReconnect_1 = opts.initReconnect(setTimeout.bind(UNDEFINED, revalidateAllKeys.bind(UNDEFINED, EVENT_REVALIDATORS, RECONNECT_EVENT)));
+            unmount = function () {
+                releaseFocus_1 && releaseFocus_1();
+                releaseReconnect_1 && releaseReconnect_1();
+                // When un-mounting, we need to remove the cache provider from the state
+                // storage too because it's a side-effect. Otherwise when re-mounting we
+                // will not re-register those event listeners.
+                SWRGlobalState.delete(provider);
+            };
+        }
+        // We might want to inject an extra layer on top of `provider` in the future,
+        // such as key serialization, auto GC, etc.
+        // For now, it's just a `Map` interface without any modifications.
+        return [provider, mutate, unmount];
+    }
+    return [provider, SWRGlobalState.get(provider)[4]];
+};
+
+// error retry
+var onErrorRetry = function (_, __, config, revalidate, opts) {
+    var maxRetryCount = config.errorRetryCount;
+    var currentRetryCount = opts.retryCount;
+    // Exponential backoff
+    var timeout = ~~((Math.random() + 0.5) *
+        (1 << (currentRetryCount < 8 ? currentRetryCount : 8))) * config.errorRetryInterval;
+    if (!isUndefined(maxRetryCount) && currentRetryCount > maxRetryCount) {
+        return;
+    }
+    setTimeout(revalidate, timeout, opts);
+};
+// Default cache provider
+var _a = initCache(new Map()), cache = _a[0], mutate = _a[1];
+// Default config
+var defaultConfig = mergeObjects({
+    // events
+    onLoadingSlow: noop,
+    onSuccess: noop,
+    onError: noop,
+    onErrorRetry: onErrorRetry,
+    onDiscarded: noop,
+    // switches
+    revalidateOnFocus: true,
+    revalidateOnReconnect: true,
+    revalidateIfStale: true,
+    shouldRetryOnError: true,
+    // timeouts
+    errorRetryInterval: slowConnection ? 10000 : 5000,
+    focusThrottleInterval: 5 * 1000,
+    dedupingInterval: 2 * 1000,
+    loadingTimeout: slowConnection ? 5000 : 3000,
+    // providers
+    compare: function (currentData, newData) {
+        return stableHash(currentData) == stableHash(newData);
+    },
+    isPaused: function () { return false; },
+    cache: cache,
+    mutate: mutate,
+    fallback: {}
+}, 
+// use web preset by default
+preset);
+
+var mergeConfigs = function (a, b) {
+    // Need to create a new object to avoid mutating the original here.
+    var v = mergeObjects(a, b);
+    // If two configs are provided, merge their `use` and `fallback` options.
+    if (b) {
+        var u1 = a.use, f1 = a.fallback;
+        var u2 = b.use, f2 = b.fallback;
+        if (u1 && u2) {
+            v.use = u1.concat(u2);
+        }
+        if (f1 && f2) {
+            v.fallback = mergeObjects(f1, f2);
+        }
+    }
+    return v;
+};
+
+var SWRConfigContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)({});
+var SWRConfig$1 = function (props) {
+    var value = props.value;
+    // Extend parent context values and middleware.
+    var extendedConfig = mergeConfigs((0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(SWRConfigContext), value);
+    // Should not use the inherited provider.
+    var provider = value && value.provider;
+    // Use a lazy initialized state to create the cache on first access.
+    var cacheContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(function () {
+        return provider
+            ? initCache(provider(extendedConfig.cache || cache), value)
+            : UNDEFINED;
+    })[0];
+    // Override the cache if a new provider is given.
+    if (cacheContext) {
+        extendedConfig.cache = cacheContext[0];
+        extendedConfig.mutate = cacheContext[1];
+    }
+    // Unsubscribe events.
+    useIsomorphicLayoutEffect(function () { return (cacheContext ? cacheContext[2] : UNDEFINED); }, []);
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(SWRConfigContext.Provider, mergeObjects(props, {
+        value: extendedConfig
+    }));
+};
+
+/**
+ * An implementation of state with dependency-tracking.
+ */
+var useStateWithDeps = function (state, unmountedRef) {
+    var rerender = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({})[1];
+    var stateRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(state);
+    // If a state property (data, error or isValidating) is accessed by the render
+    // function, we mark the property as a dependency so if it is updated again
+    // in the future, we trigger a rerender.
+    // This is also known as dependency-tracking.
+    var stateDependenciesRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)({
+        data: false,
+        error: false,
+        isValidating: false
+    });
+    /**
+     * @param payload To change stateRef, pass the values explicitly to setState:
+     * @example
+     * ```js
+     * setState({
+     *   isValidating: false
+     *   data: newData // set data to newData
+     *   error: undefined // set error to undefined
+     * })
+     *
+     * setState({
+     *   isValidating: false
+     *   data: undefined // set data to undefined
+     *   error: err // set error to err
+     * })
+     * ```
+     */
+    var setState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function (payload) {
+        var shouldRerender = false;
+        var currentState = stateRef.current;
+        for (var _ in payload) {
+            var k = _;
+            // If the property has changed, update the state and mark rerender as
+            // needed.
+            if (currentState[k] !== payload[k]) {
+                currentState[k] = payload[k];
+                // If the property is accessed by the component, a rerender should be
+                // triggered.
+                if (stateDependenciesRef.current[k]) {
+                    shouldRerender = true;
+                }
+            }
+        }
+        if (shouldRerender && !unmountedRef.current) {
+            rerender({});
+        }
+    }, 
+    // config.suspense isn't allowed to change during the lifecycle
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []);
+    // Always update the state reference.
+    useIsomorphicLayoutEffect(function () {
+        stateRef.current = state;
+    });
+    return [stateRef, stateDependenciesRef.current, setState];
+};
+
+var normalize = function (args) {
+    return isFunction(args[1])
+        ? [args[0], args[1], args[2] || {}]
+        : [args[0], null, (args[1] === null ? args[2] : args[1]) || {}];
+};
+
+var useSWRConfig = function () {
+    return mergeObjects(defaultConfig, (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(SWRConfigContext));
+};
+
+// It's tricky to pass generic types as parameters, so we just directly override
+// the types here.
+var withArgs = function (hook) {
+    return function useSWRArgs() {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        // Get the default and inherited configuration.
+        var fallbackConfig = useSWRConfig();
+        // Normalize arguments.
+        var _a = normalize(args), key = _a[0], fn = _a[1], _config = _a[2];
+        // Merge configurations.
+        var config = mergeConfigs(fallbackConfig, _config);
+        // Apply middleware
+        var next = hook;
+        var use = config.use;
+        if (use) {
+            for (var i = use.length; i-- > 0;) {
+                next = use[i](next);
+            }
+        }
+        return next(key, fn || config.fetcher, config);
+    };
+};
+
+// Add a callback function to a list of keyed callback functions and return
+// the unsubscribe function.
+var subscribeCallback = function (key, callbacks, callback) {
+    var keyedRevalidators = callbacks[key] || (callbacks[key] = []);
+    keyedRevalidators.push(callback);
+    return function () {
+        var index = keyedRevalidators.indexOf(callback);
+        if (index >= 0) {
+            // O(1): faster than splice
+            keyedRevalidators[index] = keyedRevalidators[keyedRevalidators.length - 1];
+            keyedRevalidators.pop();
+        }
+    };
+};
+
+var WITH_DEDUPE = { dedupe: true };
+var useSWRHandler = function (_key, fetcher, config) {
+    var cache = config.cache, compare = config.compare, fallbackData = config.fallbackData, suspense = config.suspense, revalidateOnMount = config.revalidateOnMount, refreshInterval = config.refreshInterval, refreshWhenHidden = config.refreshWhenHidden, refreshWhenOffline = config.refreshWhenOffline;
+    var _a = SWRGlobalState.get(cache), EVENT_REVALIDATORS = _a[0], STATE_UPDATERS = _a[1], MUTATION = _a[2], FETCH = _a[3];
+    // `key` is the identifier of the SWR `data` state, `keyInfo` holds extra
+    // states such as `error` and `isValidating` inside,
+    // all of them are derived from `_key`.
+    // `fnArgs` is an array of arguments parsed from the key, which will be passed
+    // to the fetcher.
+    var _b = serialize(_key), key = _b[0], fnArgs = _b[1], keyInfo = _b[2];
+    // If it's the initial render of this hook.
+    var initialMountedRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(false);
+    // If the hook is unmounted already. This will be used to prevent some effects
+    // to be called after unmounting.
+    var unmountedRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(false);
+    // Refs to keep the key and config.
+    var keyRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(key);
+    var fetcherRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(fetcher);
+    var configRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(config);
+    var getConfig = function () { return configRef.current; };
+    var isActive = function () { return getConfig().isVisible() && getConfig().isOnline(); };
+    var patchFetchInfo = function (info) {
+        return cache.set(keyInfo, mergeObjects(cache.get(keyInfo), info));
+    };
+    // Get the current state that SWR should return.
+    var cached = cache.get(key);
+    var fallback = isUndefined(fallbackData)
+        ? config.fallback[key]
+        : fallbackData;
+    var data = isUndefined(cached) ? fallback : cached;
+    var info = cache.get(keyInfo) || {};
+    var error = info.error;
+    var isInitialMount = !initialMountedRef.current;
+    // - Suspense mode and there's stale data for the initial render.
+    // - Not suspense mode and there is no fallback data and `revalidateIfStale` is enabled.
+    // - `revalidateIfStale` is enabled but `data` is not defined.
+    var shouldRevalidate = function () {
+        // If `revalidateOnMount` is set, we take the value directly.
+        if (isInitialMount && !isUndefined(revalidateOnMount))
+            return revalidateOnMount;
+        // If it's paused, we skip revalidation.
+        if (getConfig().isPaused())
+            return false;
+        // Under suspense mode, it will always fetch on render if there is no
+        // stale data so no need to revalidate immediately on mount again.
+        // If data exists, only revalidate if `revalidateIfStale` is true.
+        if (suspense)
+            return isUndefined(data) ? false : config.revalidateIfStale;
+        // If there is no stale data, we need to revalidate on mount;
+        // If `revalidateIfStale` is set to true, we will always revalidate.
+        return isUndefined(data) || config.revalidateIfStale;
+    };
+    // Resolve the current validating state.
+    var resolveValidating = function () {
+        if (!key || !fetcher)
+            return false;
+        if (info.isValidating)
+            return true;
+        // If it's not mounted yet and it should revalidate on mount, revalidate.
+        return isInitialMount && shouldRevalidate();
+    };
+    var isValidating = resolveValidating();
+    var _c = useStateWithDeps({
+        data: data,
+        error: error,
+        isValidating: isValidating
+    }, unmountedRef), stateRef = _c[0], stateDependencies = _c[1], setState = _c[2];
+    // The revalidation function is a carefully crafted wrapper of the original
+    // `fetcher`, to correctly handle the many edge cases.
+    var revalidate = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function (revalidateOpts) { return __awaiter(void 0, void 0, void 0, function () {
+        var currentFetcher, newData, startAt, loading, opts, shouldStartNewRequest, isCurrentKeyMounted, cleanupState, newState, finishRequestAndUpdateState, mutationInfo, err_1;
+        var _a;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    currentFetcher = fetcherRef.current;
+                    if (!key ||
+                        !currentFetcher ||
+                        unmountedRef.current ||
+                        getConfig().isPaused()) {
+                        return [2 /*return*/, false];
+                    }
+                    loading = true;
+                    opts = revalidateOpts || {};
+                    shouldStartNewRequest = !FETCH[key] || !opts.dedupe;
+                    isCurrentKeyMounted = function () {
+                        return !unmountedRef.current &&
+                            key === keyRef.current &&
+                            initialMountedRef.current;
+                    };
+                    cleanupState = function () {
+                        // Check if it's still the same request before deleting.
+                        var requestInfo = FETCH[key];
+                        if (requestInfo && requestInfo[1] === startAt) {
+                            delete FETCH[key];
+                        }
+                    };
+                    newState = { isValidating: false };
+                    finishRequestAndUpdateState = function () {
+                        patchFetchInfo({ isValidating: false });
+                        // We can only set state if it's safe (still mounted with the same key).
+                        if (isCurrentKeyMounted()) {
+                            setState(newState);
+                        }
+                    };
+                    // Start fetching. Change the `isValidating` state, update the cache.
+                    patchFetchInfo({
+                        isValidating: true
+                    });
+                    setState({ isValidating: true });
+                    _b.label = 1;
+                case 1:
+                    _b.trys.push([1, 3, , 4]);
+                    if (shouldStartNewRequest) {
+                        // Tell all other hooks to change the `isValidating` state.
+                        broadcastState(cache, key, stateRef.current.data, stateRef.current.error, true);
+                        // If no cache being rendered currently (it shows a blank page),
+                        // we trigger the loading slow event.
+                        if (config.loadingTimeout && !cache.get(key)) {
+                            setTimeout(function () {
+                                if (loading && isCurrentKeyMounted()) {
+                                    getConfig().onLoadingSlow(key, config);
+                                }
+                            }, config.loadingTimeout);
+                        }
+                        // Start the request and save the timestamp.
+                        FETCH[key] = [currentFetcher.apply(void 0, fnArgs), getTimestamp()];
+                    }
+                    _a = FETCH[key], newData = _a[0], startAt = _a[1];
+                    return [4 /*yield*/, newData];
+                case 2:
+                    newData = _b.sent();
+                    if (shouldStartNewRequest) {
+                        // If the request isn't interrupted, clean it up after the
+                        // deduplication interval.
+                        setTimeout(cleanupState, config.dedupingInterval);
+                    }
+                    // If there're other ongoing request(s), started after the current one,
+                    // we need to ignore the current one to avoid possible race conditions:
+                    //   req1------------------>res1        (current one)
+                    //        req2---------------->res2
+                    // the request that fired later will always be kept.
+                    // The timestamp maybe be `undefined` or a number
+                    if (!FETCH[key] || FETCH[key][1] !== startAt) {
+                        if (shouldStartNewRequest) {
+                            if (isCurrentKeyMounted()) {
+                                getConfig().onDiscarded(key);
+                            }
+                        }
+                        return [2 /*return*/, false];
+                    }
+                    // Clear error.
+                    patchFetchInfo({
+                        error: UNDEFINED
+                    });
+                    newState.error = UNDEFINED;
+                    mutationInfo = MUTATION[key];
+                    if (!isUndefined(mutationInfo) &&
+                        // case 1
+                        (startAt <= mutationInfo[0] ||
+                            // case 2
+                            startAt <= mutationInfo[1] ||
+                            // case 3
+                            mutationInfo[1] === 0)) {
+                        finishRequestAndUpdateState();
+                        if (shouldStartNewRequest) {
+                            if (isCurrentKeyMounted()) {
+                                getConfig().onDiscarded(key);
+                            }
+                        }
+                        return [2 /*return*/, false];
+                    }
+                    // Deep compare with latest state to avoid extra re-renders.
+                    // For local state, compare and assign.
+                    if (!compare(stateRef.current.data, newData)) {
+                        newState.data = newData;
+                    }
+                    else {
+                        // data and newData are deeply equal
+                        // it should be safe to broadcast the stale data
+                        newState.data = stateRef.current.data;
+                        // At the end of this function, `brocastState` invokes the `onStateUpdate` function,
+                        // which takes care of avoiding the re-render
+                    }
+                    // For global state, it's possible that the key has changed.
+                    // https://github.com/vercel/swr/pull/1058
+                    if (!compare(cache.get(key), newData)) {
+                        cache.set(key, newData);
+                    }
+                    // Trigger the successful callback if it's the original request.
+                    if (shouldStartNewRequest) {
+                        if (isCurrentKeyMounted()) {
+                            getConfig().onSuccess(newData, key, config);
+                        }
+                    }
+                    return [3 /*break*/, 4];
+                case 3:
+                    err_1 = _b.sent();
+                    cleanupState();
+                    // Not paused, we continue handling the error. Otherwise discard it.
+                    if (!getConfig().isPaused()) {
+                        // Get a new error, don't use deep comparison for errors.
+                        patchFetchInfo({ error: err_1 });
+                        newState.error = err_1;
+                        // Error event and retry logic. Only for the actual request, not
+                        // deduped ones.
+                        if (shouldStartNewRequest && isCurrentKeyMounted()) {
+                            getConfig().onError(err_1, key, config);
+                            if ((typeof config.shouldRetryOnError === 'boolean' &&
+                                config.shouldRetryOnError) ||
+                                (isFunction(config.shouldRetryOnError) &&
+                                    config.shouldRetryOnError(err_1))) {
+                                // When retrying, dedupe is always enabled
+                                if (isActive()) {
+                                    // If it's active, stop. It will auto revalidate when refocusing
+                                    // or reconnecting.
+                                    getConfig().onErrorRetry(err_1, key, config, revalidate, {
+                                        retryCount: (opts.retryCount || 0) + 1,
+                                        dedupe: true
+                                    });
+                                }
+                            }
+                        }
+                    }
+                    return [3 /*break*/, 4];
+                case 4:
+                    // Mark loading as stopped.
+                    loading = false;
+                    // Update the current hook's state.
+                    finishRequestAndUpdateState();
+                    // Here is the source of the request, need to tell all other hooks to
+                    // update their states.
+                    if (isCurrentKeyMounted() && shouldStartNewRequest) {
+                        broadcastState(cache, key, newState.data, newState.error, false);
+                    }
+                    return [2 /*return*/, true];
+            }
+        });
+    }); }, 
+    // `setState` is immutable, and `eventsCallback`, `fnArgs`, `keyInfo`,
+    // and `keyValidating` are depending on `key`, so we can exclude them from
+    // the deps array.
+    //
+    // FIXME:
+    // `fn` and `config` might be changed during the lifecycle,
+    // but they might be changed every render like this.
+    // `useSWR('key', () => fetch('/api/'), { suspense: true })`
+    // So we omit the values from the deps array
+    // even though it might cause unexpected behaviors.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [key]);
+    // Similar to the global mutate, but bound to the current cache and key.
+    // `cache` isn't allowed to change during the lifecycle.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    var boundMutate = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(
+    // By using `bind` we don't need to modify the size of the rest arguments.
+    // Due to https://github.com/microsoft/TypeScript/issues/37181, we have to
+    // cast it to any for now.
+    internalMutate.bind(UNDEFINED, cache, function () { return keyRef.current; }), 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []);
+    // Always update fetcher and config refs.
+    useIsomorphicLayoutEffect(function () {
+        fetcherRef.current = fetcher;
+        configRef.current = config;
+    });
+    // After mounted or key changed.
+    useIsomorphicLayoutEffect(function () {
+        if (!key)
+            return;
+        var keyChanged = key !== keyRef.current;
+        var softRevalidate = revalidate.bind(UNDEFINED, WITH_DEDUPE);
+        // Expose state updater to global event listeners. So we can update hook's
+        // internal state from the outside.
+        var onStateUpdate = function (updatedData, updatedError, updatedIsValidating) {
+            setState(mergeObjects({
+                error: updatedError,
+                isValidating: updatedIsValidating
+            }, 
+            // Since `setState` only shallowly compares states, we do a deep
+            // comparison here.
+            compare(stateRef.current.data, updatedData)
+                ? UNDEFINED
+                : {
+                    data: updatedData
+                }));
+        };
+        // Expose revalidators to global event listeners. So we can trigger
+        // revalidation from the outside.
+        var nextFocusRevalidatedAt = 0;
+        var onRevalidate = function (type) {
+            if (type == FOCUS_EVENT) {
+                var now = Date.now();
+                if (getConfig().revalidateOnFocus &&
+                    now > nextFocusRevalidatedAt &&
+                    isActive()) {
+                    nextFocusRevalidatedAt = now + getConfig().focusThrottleInterval;
+                    softRevalidate();
+                }
+            }
+            else if (type == RECONNECT_EVENT) {
+                if (getConfig().revalidateOnReconnect && isActive()) {
+                    softRevalidate();
+                }
+            }
+            else if (type == MUTATE_EVENT) {
+                return revalidate();
+            }
+            return;
+        };
+        var unsubUpdate = subscribeCallback(key, STATE_UPDATERS, onStateUpdate);
+        var unsubEvents = subscribeCallback(key, EVENT_REVALIDATORS, onRevalidate);
+        // Mark the component as mounted and update corresponding refs.
+        unmountedRef.current = false;
+        keyRef.current = key;
+        initialMountedRef.current = true;
+        // When `key` updates, reset the state to the initial value
+        // and trigger a rerender if necessary.
+        if (keyChanged) {
+            setState({
+                data: data,
+                error: error,
+                isValidating: isValidating
+            });
+        }
+        // Trigger a revalidation.
+        if (shouldRevalidate()) {
+            if (isUndefined(data) || IS_SERVER) {
+                // Revalidate immediately.
+                softRevalidate();
+            }
+            else {
+                // Delay the revalidate if we have data to return so we won't block
+                // rendering.
+                rAF(softRevalidate);
+            }
+        }
+        return function () {
+            // Mark it as unmounted.
+            unmountedRef.current = true;
+            unsubUpdate();
+            unsubEvents();
+        };
+    }, [key, revalidate]);
+    // Polling
+    useIsomorphicLayoutEffect(function () {
+        var timer;
+        function next() {
+            // Use the passed interval
+            // ...or invoke the function with the updated data to get the interval
+            var interval = isFunction(refreshInterval)
+                ? refreshInterval(data)
+                : refreshInterval;
+            // We only start next interval if `refreshInterval` is not 0, and:
+            // - `force` is true, which is the start of polling
+            // - or `timer` is not 0, which means the effect wasn't canceled
+            if (interval && timer !== -1) {
+                timer = setTimeout(execute, interval);
+            }
+        }
+        function execute() {
+            // Check if it's OK to execute:
+            // Only revalidate when the page is visible, online and not errored.
+            if (!stateRef.current.error &&
+                (refreshWhenHidden || getConfig().isVisible()) &&
+                (refreshWhenOffline || getConfig().isOnline())) {
+                revalidate(WITH_DEDUPE).then(next);
+            }
+            else {
+                // Schedule next interval to check again.
+                next();
+            }
+        }
+        next();
+        return function () {
+            if (timer) {
+                clearTimeout(timer);
+                timer = -1;
+            }
+        };
+    }, [refreshInterval, refreshWhenHidden, refreshWhenOffline, revalidate]);
+    // Display debug info in React DevTools.
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useDebugValue)(data);
+    // In Suspense mode, we can't return the empty `data` state.
+    // If there is `error`, the `error` needs to be thrown to the error boundary.
+    // If there is no `error`, the `revalidation` promise needs to be thrown to
+    // the suspense boundary.
+    if (suspense && isUndefined(data) && key) {
+        // Always update fetcher and config refs even with the Suspense mode.
+        fetcherRef.current = fetcher;
+        configRef.current = config;
+        unmountedRef.current = false;
+        throw isUndefined(error) ? revalidate(WITH_DEDUPE) : error;
+    }
+    return {
+        mutate: boundMutate,
+        get data() {
+            stateDependencies.data = true;
+            return data;
+        },
+        get error() {
+            stateDependencies.error = true;
+            return error;
+        },
+        get isValidating() {
+            stateDependencies.isValidating = true;
+            return isValidating;
+        }
+    };
+};
+var SWRConfig = OBJECT.defineProperty(SWRConfig$1, 'default', {
+    value: defaultConfig
+});
+var unstable_serialize = function (key) { return serialize(key)[0]; };
+var useSWR = withArgs(useSWRHandler);
+
+// useSWR
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/tslib/tslib.es6.js":
+/*!*****************************************!*\
+  !*** ./node_modules/tslib/tslib.es6.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "__assign": () => (/* binding */ __assign),
+/* harmony export */   "__asyncDelegator": () => (/* binding */ __asyncDelegator),
+/* harmony export */   "__asyncGenerator": () => (/* binding */ __asyncGenerator),
+/* harmony export */   "__asyncValues": () => (/* binding */ __asyncValues),
+/* harmony export */   "__await": () => (/* binding */ __await),
+/* harmony export */   "__awaiter": () => (/* binding */ __awaiter),
+/* harmony export */   "__classPrivateFieldGet": () => (/* binding */ __classPrivateFieldGet),
+/* harmony export */   "__classPrivateFieldIn": () => (/* binding */ __classPrivateFieldIn),
+/* harmony export */   "__classPrivateFieldSet": () => (/* binding */ __classPrivateFieldSet),
+/* harmony export */   "__createBinding": () => (/* binding */ __createBinding),
+/* harmony export */   "__decorate": () => (/* binding */ __decorate),
+/* harmony export */   "__exportStar": () => (/* binding */ __exportStar),
+/* harmony export */   "__extends": () => (/* binding */ __extends),
+/* harmony export */   "__generator": () => (/* binding */ __generator),
+/* harmony export */   "__importDefault": () => (/* binding */ __importDefault),
+/* harmony export */   "__importStar": () => (/* binding */ __importStar),
+/* harmony export */   "__makeTemplateObject": () => (/* binding */ __makeTemplateObject),
+/* harmony export */   "__metadata": () => (/* binding */ __metadata),
+/* harmony export */   "__param": () => (/* binding */ __param),
+/* harmony export */   "__read": () => (/* binding */ __read),
+/* harmony export */   "__rest": () => (/* binding */ __rest),
+/* harmony export */   "__spread": () => (/* binding */ __spread),
+/* harmony export */   "__spreadArray": () => (/* binding */ __spreadArray),
+/* harmony export */   "__spreadArrays": () => (/* binding */ __spreadArrays),
+/* harmony export */   "__values": () => (/* binding */ __values)
+/* harmony export */ });
+/******************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+/* global Reflect, Promise */
+
+var extendStatics = function(d, b) {
+    extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+    return extendStatics(d, b);
+};
+
+function __extends(d, b) {
+    if (typeof b !== "function" && b !== null)
+        throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+    extendStatics(d, b);
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
+
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    }
+    return __assign.apply(this, arguments);
+}
+
+function __rest(s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+}
+
+function __decorate(decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+}
+
+function __param(paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+}
+
+function __metadata(metadataKey, metadataValue) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
+}
+
+function __awaiter(thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+}
+
+function __generator(thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+}
+
+var __createBinding = Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+        desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+});
+
+function __exportStar(m, o) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(o, p)) __createBinding(o, m, p);
+}
+
+function __values(o) {
+    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+    if (m) return m.call(o);
+    if (o && typeof o.length === "number") return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+}
+
+function __read(o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+}
+
+/** @deprecated */
+function __spread() {
+    for (var ar = [], i = 0; i < arguments.length; i++)
+        ar = ar.concat(__read(arguments[i]));
+    return ar;
+}
+
+/** @deprecated */
+function __spreadArrays() {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+}
+
+function __spreadArray(to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+}
+
+function __await(v) {
+    return this instanceof __await ? (this.v = v, this) : new __await(v);
+}
+
+function __asyncGenerator(thisArg, _arguments, generator) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var g = generator.apply(thisArg, _arguments || []), i, q = [];
+    return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i;
+    function verb(n) { if (g[n]) i[n] = function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]) > 1 || resume(n, v); }); }; }
+    function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(q[0][3], e); } }
+    function step(r) { r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r); }
+    function fulfill(value) { resume("next", value); }
+    function reject(value) { resume("throw", value); }
+    function settle(f, v) { if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]); }
+}
+
+function __asyncDelegator(o) {
+    var i, p;
+    return i = {}, verb("next"), verb("throw", function (e) { throw e; }), verb("return"), i[Symbol.iterator] = function () { return this; }, i;
+    function verb(n, f) { i[n] = o[n] ? function (v) { return (p = !p) ? { value: __await(o[n](v)), done: n === "return" } : f ? f(v) : v; } : f; }
+}
+
+function __asyncValues(o) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var m = o[Symbol.asyncIterator], i;
+    return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
+    function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
+    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
+}
+
+function __makeTemplateObject(cooked, raw) {
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
+};
+
+var __setModuleDefault = Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+};
+
+function __importStar(mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+}
+
+function __importDefault(mod) {
+    return (mod && mod.__esModule) ? mod : { default: mod };
+}
+
+function __classPrivateFieldGet(receiver, state, kind, f) {
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+}
+
+function __classPrivateFieldSet(receiver, state, value, kind, f) {
+    if (kind === "m") throw new TypeError("Private method is not writable");
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
+    return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
+}
+
+function __classPrivateFieldIn(state, receiver) {
+    if (receiver === null || (typeof receiver !== "object" && typeof receiver !== "function")) throw new TypeError("Cannot use 'in' operator on non-object");
+    return typeof state === "function" ? receiver === state : state.has(receiver);
 }
 
 
