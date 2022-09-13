@@ -3507,6 +3507,7 @@ var removeRestaurant = function removeRestaurant(restaurantId) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "fetchUser": () => (/* binding */ fetchUser),
 /* harmony export */   "login": () => (/* binding */ login),
 /* harmony export */   "logout": () => (/* binding */ logout),
 /* harmony export */   "signup": () => (/* binding */ signup)
@@ -3533,6 +3534,15 @@ var logout = function logout() {
   return $.ajax({
     method: 'DELETE',
     url: '/api/session'
+  });
+};
+var fetchUser = function fetchUser(user) {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/users',
+    data: {
+      user: user
+    }
   });
 };
 

@@ -20,3 +20,11 @@ export const login = user => (
       url: '/api/session'
     })
   );
+
+  export const fetchUser = user => (
+    $.ajax({
+      method: 'GET',
+      url: '/api/users',
+      data: { user }
+    })
+  )
