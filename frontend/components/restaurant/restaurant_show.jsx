@@ -21,7 +21,13 @@ useEffect(() => {
 getRestaurant(id)
 }, [])
 
-    console.log(restaurant)
+    return (
+        <div>
+        <h1>{restaurant.name}</h1>
+        <h2>{restaurant.location}</h2>
+        <h3>{restaurant.tables}</h3>
+        </div>
+    )
    
 }
 

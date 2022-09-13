@@ -407,7 +407,7 @@ var restaurantShow = function restaurantShow() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     getRestaurant(id);
   }, []);
-  console.log(restaurant);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, restaurant.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, restaurant.location), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, restaurant.tables));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (restaurantShow);
