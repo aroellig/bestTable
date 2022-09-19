@@ -406,6 +406,10 @@ var restaurantShow = function restaurantShow() {
       user = _useState2[0],
       setUser = _useState2[1];
 
+  var sessionId = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(function (state) {
+    return state.session.id;
+  });
+
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
       _useState4 = _slicedToArray(_useState3, 2),
       restaurant = _useState4[0],
@@ -429,6 +433,7 @@ var restaurantShow = function restaurantShow() {
     getRestaurant(id);
     makeUser();
   }, []);
+  console.log(sessionId);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, restaurant.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, restaurant.location), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, restaurant.tables));
 };
 

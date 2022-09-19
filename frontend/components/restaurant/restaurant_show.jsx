@@ -10,6 +10,7 @@ const restaurantShow = () => {
 const dispatch =  useDispatch()
 const params = useParams();
 const [user, setUser] = useState({})
+const sessionId = useSelector(state => state.session.id)
 const [restaurant, setRestaurant] = useState({})
   const id = parseInt(params.restaurantId)
   const getRestaurant = (id) => {
@@ -26,7 +27,7 @@ useEffect(() => {
 getRestaurant(id)
 makeUser()
 }, [])
-
+console.log(sessionId)
     return (
         <div>
         <h1>{restaurant.name}</h1>
