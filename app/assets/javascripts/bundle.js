@@ -423,15 +423,8 @@ var restaurantShow = function restaurantShow() {
     });
   };
 
-  var makeUser = function makeUser() {
-    dispatch((0,_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__.getUser)()).then(function (response) {
-      return console.log(response);
-    });
-  };
-
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     getRestaurant(id);
-    makeUser();
   }, []);
   console.log(sessionId);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, restaurant.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, restaurant.location), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, restaurant.tables));

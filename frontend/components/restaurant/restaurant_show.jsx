@@ -17,15 +17,11 @@ const [restaurant, setRestaurant] = useState({})
     dispatch(fetchRestaurant(id))
     .then(response => setRestaurant(response.restaurant))
   }
-  const makeUser = () => {
-      dispatch(getUser())
-      .then(response => console.log(response))
-  }
+
 
 
 useEffect(() => {
 getRestaurant(id)
-makeUser()
 }, [])
 console.log(sessionId)
     return (

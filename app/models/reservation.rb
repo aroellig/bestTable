@@ -1,5 +1,5 @@
 class Reservation < ApplicationRecord
-    validate :name, :number
+    validate :name, :number, :date
 
     belongs_to :user,
     foreign_key: :user_id,
