@@ -1,0 +1,1 @@
+json.extract! opening, :id, :restaurant_id, :number, :date
