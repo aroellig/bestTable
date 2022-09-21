@@ -20,3 +20,14 @@ u0 = User.create!({username: "andrew", password: "andy12", email: 'andy@andy.com
                   tables: rand(10...20)
                   )            
   end
+
+  start = Date.today
+  (start..start + 180).each do |date|
+    Restaurant.all.each do |restaurant|
+        Opening.create!(
+           restaurant_id: restaurant.id,
+           number: restaurant.tables,
+           date: date
+        )
+    end
+  end

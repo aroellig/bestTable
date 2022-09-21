@@ -1,4 +1,4 @@
-class Reservation < ApplicationRecord
+class Opening < ApplicationRecord
     validate :number, :date
 
     belongs_to :restaurant,
